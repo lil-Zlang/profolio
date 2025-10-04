@@ -11,7 +11,7 @@ const Experience = () => {
   })
 
   // GitHub Pages basePath
-  const basePath = process.env.NODE_ENV === 'production' ? '/profolio' : ''
+  const basePath = process.env.NODE_ENV === 'production' ? '/buildwithlang' : ''
 
   const experiences = [
     {

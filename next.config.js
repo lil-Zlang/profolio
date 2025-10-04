@@ -3,7 +3,7 @@ const nextConfig = {
   output: 'export',
   reactStrictMode: true,
   // GitHub Pages deployment - set basePath to your repo name
-  basePath: process.env.NODE_ENV === 'production' ? '/profolio' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/buildwithlang' : '',
   images: {
     unoptimized: true, // Required for static export
     domains: ['images.unsplash.com'],
