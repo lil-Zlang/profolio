@@ -20,7 +20,7 @@ describe('Hero Component', () => {
 
   it('displays the main heading with name', () => {
     render(<Hero />)
-    expect(screen.getByText(/Your Name/i)).toBeInTheDocument()
+    expect(screen.getByText(/Zhilang Gui/i)).toBeInTheDocument()
   })
 
   it('renders CTA buttons', () => {

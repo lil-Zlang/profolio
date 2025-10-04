@@ -60,14 +60,14 @@ describe('Contact Component', () => {
     fireEvent.click(submitButton)
 
     await waitFor(() => {
-      expect(screen.getByText(/Message sent successfully/i)).toBeInTheDocument()
-    })
+      expect(screen.getByText(/Message sent successfully! I'll get back to you soon./i)).toBeInTheDocument()
+    }, { timeout: 2000 })
   })
 
   it('displays contact information', () => {
     render(<Contact />)
-    expect(screen.getByText(/hello@example.com/i)).toBeInTheDocument()
-    expect(screen.getByText(/\+1 \(555\) 123-4567/i)).toBeInTheDocument()
+    expect(screen.getByText(/lang.gui.bu@gmail.com/i)).toBeInTheDocument()
+    expect(screen.getByText(/Available upon request/i)).toBeInTheDocument()
     expect(screen.getByText(/San Francisco, CA/i)).toBeInTheDocument()
   })
 })
