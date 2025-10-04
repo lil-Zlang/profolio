@@ -71,17 +71,27 @@ const Hero = () => {
           className="text-5xl md:text-7xl font-bold mb-6 dark:text-white"
         >
           Hi, I'm{' '}
-          <span className="gradient-text">Zhiliang Gui</span>
+          <span className="gradient-text">Zhilang Gui</span>
         </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200 mb-4 max-w-3xl mx-auto"
+        >
+          I build intelligent systems that empower people and enhance lives.
+        </motion.p>
 
         {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto"
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto"
         >
-          Building intelligent systems that solve real problems.
+          A software engineer bridging the gap between complex algorithms and intuitive, real-world solutions.
         </motion.p>
 
         {/* CTA Buttons */}

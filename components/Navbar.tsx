@@ -43,8 +43,8 @@ const Navbar = () => {
   ]
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/zhiliang-gui', label: 'LinkedIn' },
+    { icon: Github, href: 'https://github.com/lil-Zlang', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/zhilang-gui-b5b59b254/', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:lang.gui.bu@gmail.com', label: 'Email' },
   ]
 

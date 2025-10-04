@@ -26,7 +26,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
 
 - **Email**: lang.gui.bu@gmail.com
 - **Location**: San Francisco, CA
-- **LinkedIn**: [zhiliang-gui](https://www.linkedin.com/in/zhiliang-gui)
+- **LinkedIn**: [Zhilang-gui](https://www.linkedin.com/in/Zhilang-gui)
 
 ## 📝 License
 
@@ -34,4 +34,4 @@ MIT License - feel free to use this as inspiration for your own portfolio!
 
 ---
 
-Made with ❤️ by Zhiliang Gui
+Made with ❤️ by Zhilang Gui

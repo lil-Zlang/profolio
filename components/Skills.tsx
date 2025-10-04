@@ -118,48 +118,53 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Technologies - Apple-style chip design */}
+        {/* Technologies - Infinite Scrolling Marquee */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center"
+          className="text-center mt-16"
         >
           <h3 className="text-2xl font-bold mb-8 dark:text-white">
             Technologies & Tools
           </h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            {technologies.map((tech, index) => (
-              <motion.div
-                key={tech.name}
-                initial={{ scale: 0, opacity: 0 }}
-                animate={inView ? { scale: 1, opacity: 1 } : {}}
-                transition={{ 
-                  delay: 0.6 + index * 0.03, 
-                  duration: 0.4,
-                  type: "spring",
-                  stiffness: 200
-                }}
-                whileHover={{ 
-                  scale: 1.1, 
-                  y: -5,
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.15)"
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative px-6 py-3 bg-white dark:bg-gray-800 rounded-full font-medium text-gray-700 dark:text-gray-300 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 cursor-pointer overflow-hidden"
-              >
-                {/* Gradient background on hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* Content */}
-                <div className="relative flex items-center gap-2">
-                  <tech.icon size={16} className="text-gray-500 dark:text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors" />
-                  <span className="group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
-                    {tech.name}
-                  </span>
+          
+          {/* Scrolling container with overflow hidden */}
+          <div className="relative overflow-hidden py-4">
+            {/* Gradient fade edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-gray-50 dark:from-gray-900 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-gray-50 dark:from-gray-900 to-transparent z-10 pointer-events-none" />
+            
+            {/* Scrolling wrapper */}
+            <motion.div
+              className="flex gap-4"
+              animate={{
+                x: [0, -1920]
+              }}
+              transition={{
+                x: {
+                  duration: 30,
+                  repeat: Infinity,
+                  ease: "linear"
+                }
+              }}
+            >
+              {/* Render technologies twice for seamless loop */}
+              {[...technologies, ...technologies].map((tech, index) => (
+                <div
+                  key={`tech-${index}`}
+                  className="group relative px-6 py-3 bg-white dark:bg-gray-800 rounded-full font-medium text-gray-700 dark:text-gray-300 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 cursor-pointer overflow-hidden whitespace-nowrap flex-shrink-0"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative flex items-center gap-2">
+                    <tech.icon size={16} className="text-gray-500 dark:text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors" />
+                    <span className="group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
+                      {tech.name}
+                    </span>
+                  </div>
                 </div>
-              </motion.div>
-            ))}
+              ))}
+            </motion.div>
           </div>
         </motion.div>
 

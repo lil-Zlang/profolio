@@ -12,44 +12,44 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'Semi-Autonomous Cycle for Visually Impaired 🏆',
+      title: 'Project Independence: Semi-Autonomous Cycle 🏆',
       description:
-        'COE Societal Impact Award winner. Designed comprehensive embedded feedback system with ROS2, haptic feedback, and voice modules. Achieved 92% navigation accuracy through virtual testing with URDF and RViz.',
+        'Challenge: To grant greater mobility and independence to the visually impaired through safe, intuitive navigation. Solution: COE Societal Impact Award winner - engineered comprehensive embedded system using ROS2, integrating haptic feedback and voice modules. Impact: Achieved 92% navigation accuracy in virtual testing, demonstrating a viable solution that could profoundly improve users\' daily lives.',
       image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
       tags: ['ROS2', 'Embedded Systems', 'Google Maps API', 'Computer Vision'],
-      github: 'https://github.com',
+      github: 'https://github.com/lil-Zlang',
       demo: 'https://demo.com',
-      color: 'from-blue-500 to-cyan-500',
+      color: 'from-emerald-500 to-teal-500',
     },
     {
-      title: 'EasyBee AI - Travel Agent',
+      title: 'The AI Co-Pilot: Reimagining Travel',
       description:
-        'Multi-agent LLM system with LangGraph achieving 40% booking conversion increase. Integrated Voiceflow memory for adaptive itinerary planning and Google Calendar API for real-time conflict resolution.',
+        'Challenge: The modern travel booking process is fragmented and overwhelming. Solution: Developed multi-agent LLM system using LangGraph that intelligently plans, adapts, and books travel itineraries based on user preferences and real-time data. Impact: Drove a 40% increase in booking conversions by creating a seamless, intelligent, and highly personalized user experience.',
       image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80',
       tags: ['LangGraph', 'LLM', 'Airtable', 'Voiceflow', 'Google Calendar API'],
-      github: 'https://github.com',
+      github: 'https://github.com/lil-Zlang',
       demo: 'https://demo.com',
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-violet-500 to-purple-500',
     },
     {
       title: 'Personal Assistive Robot',
       description:
-        'Autonomous indoor navigation system using ESP32 with Optitrack positioning and PID control. Developed real-time collision avoidance with Sharp IR sensors and seamless dual-mode control.',
+        'Challenge: Create a reliable, low-cost autonomous robot for indoor assistance. Solution: Built system from ground up on ESP32 microcontroller, implementing PID control for precise movement and real-time collision avoidance using Sharp IR sensors. Impact: Achieved smooth, autonomous navigation and object avoidance in complex indoor environments, showcasing efficient embedded systems design.',
       image: 'https://images.unsplash.com/photo-1563207153-f403bf289096?w=800&q=80',
-      tags: ['ESP32', 'PID Control', 'Embedded C', 'PWM', 'Sharp IR'],
-      github: 'https://github.com',
+      tags: ['ESP32', 'PID Control', 'Embedded C', 'Real-Time Systems'],
+      github: 'https://github.com/lil-Zlang',
       demo: 'https://demo.com',
-      color: 'from-green-500 to-emerald-500',
+      color: 'from-blue-500 to-cyan-500',
     },
     {
-      title: 'Secure E-Voting System',
+      title: 'Secure E-Voting: Decentralized Platform',
       description:
-        'Full-stack real-time voting platform with ESP32-based P2P UDP communication and Bully algorithm for leader election. Node.js backend with TingoDB for live vote monitoring and visualization.',
+        'Challenge: Design a secure and transparent electronic voting system resistant to single points of failure. Solution: Architected full-stack platform featuring peer-to-peer UDP communication between ESP32 devices and Bully algorithm for leader election. Impact: Delivered real-time, decentralized voting system with live monitoring dashboard, providing proof-of-concept for secure digital democracy.',
       image: 'https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?w=800&q=80',
-      tags: ['ESP32', 'Node.js', 'UDP', 'TingoDB', 'Canvas.js', 'Socket.io'],
-      github: 'https://github.com',
+      tags: ['ESP32', 'Node.js', 'UDP', 'TingoDB', 'Distributed Systems'],
+      github: 'https://github.com/lil-Zlang',
       demo: 'https://demo.com',
-      color: 'from-orange-500 to-red-500',
+      color: 'from-rose-500 to-pink-500',
     },
     {
       title: 'FitCat - Activity Tracking',
@@ -59,7 +59,7 @@ const Projects = () => {
       tags: ['ESP32', 'IoT', 'Node.js', 'Raspberry Pi', 'UDP'],
       github: 'https://github.com',
       demo: 'https://demo.com',
-      color: 'from-yellow-500 to-orange-500',
+      color: 'from-amber-500 to-orange-500',
     },
     {
       title: 'U-Net Thermal Model',
@@ -69,7 +69,7 @@ const Projects = () => {
       tags: ['PyTorch', 'U-Net', 'Paraview', 'Computer Vision'],
       github: 'https://github.com',
       demo: 'https://demo.com',
-      color: 'from-indigo-500 to-purple-500',
+      color: 'from-indigo-500 to-blue-500',
     },
   ]
 
@@ -101,12 +101,11 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Featured <span className="gradient-text">Projects</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
+            <span className="gradient-text">A Showcase of My Work</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            A showcase of my recent work, demonstrating creativity, technical
-            skills, and problem-solving abilities.
+          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+            Here are a few projects that represent my passion for solving meaningful problems through technology.
           </p>
         </motion.div>
 
@@ -192,7 +191,7 @@ const Projects = () => {
           className="text-center mt-12"
         >
           <motion.a
-            href="https://github.com"
+            href="https://github.com/lil-Zlang"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-shadow"

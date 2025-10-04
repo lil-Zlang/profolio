@@ -12,24 +12,24 @@ const About = () => {
 
   const features = [
     {
-      icon: Code2,
-      title: 'Clean Code',
-      description: 'Writing maintainable and efficient code that scales',
+      icon: Heart,
+      title: 'Empathy-First Engineering',
+      description: 'I start every project by understanding the human need behind the technical challenge',
     },
     {
       icon: Palette,
-      title: 'Creative Design',
-      description: 'Crafting beautiful and intuitive user interfaces',
+      title: 'Clarity in Complexity',
+      description: 'I specialize in making complex systems intuitive and accessible for all users',
     },
     {
       icon: Rocket,
-      title: 'Fast Performance',
-      description: 'Optimizing for speed and smooth user experiences',
+      title: 'Pragmatic Innovation',
+      description: 'I focus on delivering robust, scalable solutions that provide real-world value today',
     },
     {
-      icon: Heart,
-      title: 'User-Focused',
-      description: 'Building with empathy and user needs in mind',
+      icon: Code2,
+      title: 'Engineering Philosophy',
+      description: 'Building technology that is intelligent, intuitive, and genuinely helpful',
     },
   ]
 
@@ -62,11 +62,10 @@ const About = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
-            About <span className="gradient-text">Me</span>
+            My Mission: <span className="gradient-text">Engineering with Empathy</span>
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-            I'm a passionate developer who loves turning ideas into reality
-            through code and design.
+            Technology's true power lies in solving distinctly human challenges.
           </p>
         </motion.div>
 
@@ -79,15 +78,15 @@ const About = () => {
             <div className="relative">
               <div className="absolute inset-0 gradient-bg opacity-20 rounded-3xl blur-2xl" />
               <div className="relative bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 p-8 rounded-3xl">
-                <h3 className="text-2xl font-bold mb-4 dark:text-white">My Story</h3>
+                <h3 className="text-2xl font-bold mb-4 dark:text-white">About Me</h3>
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
-                  Computer Engineering student at Boston University, winner of the COE Societal Impact Award.
+                  I'm driven by a simple question: how can we make <span className="font-semibold text-gray-900 dark:text-white">complex technology feel human</span>?
                 </p>
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
-                  Built ML systems at Cadence and EasyBee AI, achieving 40% conversion increases and 5% efficiency gains.
+                  At <span className="font-semibold text-gray-900 dark:text-white">Boston University</span>, this question led me to create a <span className="font-semibold text-gray-900 dark:text-white">semi-autonomous cycle for the visually impaired</span>—a project that won the <span className="font-semibold text-purple-600 dark:text-purple-400">Societal Impact Award</span>.
                 </p>
                 <p className="text-gray-700 dark:text-gray-300">
-                  Passionate about creating technology that makes a real difference—from assistive navigation to race car controls.
+                  I bring that same <span className="font-semibold text-gray-900 dark:text-white">user-first mindset</span> to my professional work, whether building an AI that makes travel planning <span className="font-semibold text-purple-600 dark:text-purple-400">40% easier</span> for customers at <span className="font-semibold text-gray-900 dark:text-white">EasyBee AI</span>, or a model that makes data centers <span className="font-semibold text-purple-600 dark:text-purple-400">5% more efficient</span> at <span className="font-semibold text-gray-900 dark:text-white">Cadence</span>. For me, the goal is always the same: <span className="font-semibold text-gray-900 dark:text-white">solve real problems for real people</span>.
                 </p>
               </div>
             </div>

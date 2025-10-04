@@ -7,8 +7,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/zhiliang-gui', label: 'LinkedIn' },
+    { icon: Github, href: 'https://github.com/lil-Zlang', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/zhilang-gui-b5b59b254/', label: 'LinkedIn' },
     { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
     { icon: Mail, href: 'mailto:lang.gui.bu@gmail.com', label: 'Email' },
   ]
@@ -104,7 +104,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm flex items-center gap-1">
               © {currentYear} Made with{' '}
-              <Heart className="text-red-500 inline" size={16} /> by Zhiliang Gui
+              <Heart className="text-red-500 inline" size={16} /> by Zhilang Gui
             </p>
             <div className="flex gap-6 text-sm text-gray-400">
               <a href="#" className="hover:text-white transition-colors">

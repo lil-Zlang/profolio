@@ -6,9 +6,9 @@ import { ThemeProvider } from '@/contexts/ThemeContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Zhiliang Gui | Computer Engineer & Solutions Architect',
-  description: 'Computer Engineer specializing in ML, embedded systems, and full-stack development. Experience at Cadence Design Systems and EasyBee AI.',
-  keywords: ['Computer Engineering', 'Machine Learning', 'Embedded Systems', 'Full-Stack Development', 'ROS2', 'IoT', 'LangGraph', 'Boston University'],
+  title: 'Zhilang Gui | Software Engineer Building Intelligent Systems',
+  description: 'Software engineer bridging complex algorithms with intuitive solutions. Building intelligent systems that empower people and enhance lives. Experience at EasyBee AI and Cadence Design Systems.',
+  keywords: ['Software Engineer', 'Machine Learning', 'Embedded Systems', 'Full-Stack Development', 'ROS2', 'IoT', 'LangGraph', 'Boston University', 'AI Systems', 'Computer Engineering'],
 }
 
 export default function RootLayout({

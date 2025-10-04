@@ -69,12 +69,11 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Get In <span className="gradient-text">Touch</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
+            Let's Build <span className="gradient-text">Something Meaningful</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? I'd love to hear from
-            you!
+          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+            I'm driven by complex challenges and the opportunity to create technology with a purpose. If you have a project that aims to make a real-world impact, or if you're looking for a passionate engineer to join your vision, I would love to connect.
           </p>
         </motion.div>
 
