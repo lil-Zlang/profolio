@@ -38,7 +38,7 @@ const Experience = () => {
   ]
 
   return (
-    <section id="experience" className="section-padding bg-white">
+    <section id="experience" className="section-padding bg-white dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-6xl mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -46,10 +46,10 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
             Work <span className="gradient-text">Experience</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
             Building impactful solutions at the intersection of ML, full-stack development, and systems engineering.
           </p>
         </motion.div>
@@ -62,7 +62,7 @@ const Experience = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               whileHover={{ y: -5 }}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden"
+              className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all border border-gray-100 dark:border-gray-700 overflow-hidden"
             >
               <div className="p-8">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
@@ -75,13 +75,13 @@ const Experience = () => {
                     </div>
                     
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
                         {exp.company}
                       </h3>
-                      <p className="text-lg font-semibold text-gray-700 mb-2">
+                      <p className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         {exp.role}
                       </p>
-                      <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+                      <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400">
                         <div className="flex items-center gap-1">
                           <Calendar size={16} />
                           <span>{exp.period}</span>
@@ -105,7 +105,7 @@ const Experience = () => {
                       className="flex items-start gap-3"
                     >
                       <div className={`mt-1.5 w-2 h-2 rounded-full bg-gradient-to-r ${exp.color} flex-shrink-0`} />
-                      <p className="text-gray-700">{achievement}</p>
+                      <p className="text-gray-700 dark:text-gray-300">{achievement}</p>
                     </motion.div>
                   ))}
                 </div>

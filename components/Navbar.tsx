@@ -2,11 +2,28 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react'
+import { Menu, X, Github, Linkedin, Mail, Moon, Sun } from 'lucide-react'
+import { useTheme } from '@/contexts/ThemeContext'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  
+  let theme = 'light'
+  let toggleTheme = () => {}
+  
+  try {
+    const themeContext = useTheme()
+    theme = themeContext.theme
+    toggleTheme = themeContext.toggleTheme
+  } catch (e) {
+    // Theme context not available during SSR
+  }
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,8 +44,8 @@ const Navbar = () => {
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:guizhiliang7@gmail.com', label: 'Email' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/zhiliang-gui', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:lang.gui.bu@gmail.com', label: 'Email' },
   ]
 
   return (
@@ -38,7 +55,7 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/80 backdrop-blur-md shadow-lg'
+          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg dark:shadow-gray-800/50'
           : 'bg-transparent'
       }`}
     >
@@ -60,7 +77,7 @@ const Navbar = () => {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-purple-600 font-medium transition-colors"
+                className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 font-medium transition-colors"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -71,15 +88,26 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Social Links */}
+          {/* Dark Mode Toggle & Social Links */}
           <div className="hidden md:flex items-center space-x-4">
+            {mounted && (
+              <motion.button
+                onClick={toggleTheme}
+                className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                whileHover={{ scale: 1.1, rotate: 180 }}
+                whileTap={{ scale: 0.9 }}
+                aria-label="Toggle theme"
+              >
+                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              </motion.button>
+            )}
             {socialLinks.map((social) => (
               <motion.a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-700 hover:text-purple-600 transition-colors"
+                className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
                 aria-label={social.label}
@@ -90,14 +118,26 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <motion.button
-            className="md:hidden text-gray-700"
+          <div className="md:hidden flex items-center gap-2">
+            {mounted && (
+              <motion.button
+                onClick={toggleTheme}
+                className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+                whileTap={{ scale: 0.9 }}
+                aria-label="Toggle theme"
+              >
+                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              </motion.button>
+            )}
+            <motion.button
+              className="text-gray-700 dark:text-gray-300"
             onClick={() => setIsOpen(!isOpen)}
             whileTap={{ scale: 0.9 }}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </motion.button>
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </motion.button>
+          </div>
         </div>
       </div>
 
@@ -109,14 +149,14 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white/95 backdrop-blur-md"
+            className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md"
           >
             <div className="px-4 pt-2 pb-4 space-y-3">
               {navItems.map((item) => (
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className="block py-2 text-gray-700 hover:text-purple-600 font-medium"
+                  className="block py-2 text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 font-medium"
                   onClick={() => setIsOpen(false)}
                   whileHover={{ x: 10 }}
                 >
@@ -130,7 +170,7 @@ const Navbar = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-700 hover:text-purple-600"
+                    className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
                     whileHover={{ scale: 1.2 }}
                     aria-label={social.label}
                   >

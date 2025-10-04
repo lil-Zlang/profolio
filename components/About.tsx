@@ -53,7 +53,7 @@ const About = () => {
   }
 
   return (
-    <section id="about" className="section-padding bg-white">
+    <section id="about" className="section-padding bg-white dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-6xl mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -61,10 +61,10 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
             About <span className="gradient-text">Me</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
             I'm a passionate developer who loves turning ideas into reality
             through code and design.
           </p>
@@ -78,22 +78,16 @@ const About = () => {
           >
             <div className="relative">
               <div className="absolute inset-0 gradient-bg opacity-20 rounded-3xl blur-2xl" />
-              <div className="relative bg-gradient-to-br from-purple-100 to-pink-100 p-8 rounded-3xl">
-                <h3 className="text-2xl font-bold mb-4">My Story</h3>
-                <p className="text-gray-700 mb-4">
-                  Computer Engineering student at Boston University's College of Engineering 
-                  with hands-on experience spanning ML engineering, embedded systems, and full-stack development.
-                  Winner of the COE Societal Impact Award for developing assistive technology.
+              <div className="relative bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 p-8 rounded-3xl">
+                <h3 className="text-2xl font-bold mb-4 dark:text-white">My Story</h3>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  Computer Engineering student at Boston University, winner of the COE Societal Impact Award.
                 </p>
-                <p className="text-gray-700 mb-4">
-                  My journey includes engineering roles at Cadence Design Systems optimizing data center
-                  thermal models, and leading full-stack development at EasyBee AI where I built
-                  multi-agent LLM systems that increased booking conversions by 40%.
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  Built ML systems at Cadence and EasyBee AI, achieving 40% conversion increases and 5% efficiency gains.
                 </p>
-                <p className="text-gray-700">
-                  I excel at bridging complex technical solutions with real-world impact—from autonomous
-                  navigation systems for the visually impaired to embedded race car control systems.
-                  Currently exploring opportunities at the intersection of ML, IoT, and solutions engineering.
+                <p className="text-gray-700 dark:text-gray-300">
+                  Passionate about creating technology that makes a real difference—from assistive navigation to race car controls.
                 </p>
               </div>
             </div>
@@ -109,9 +103,9 @@ const About = () => {
               <motion.div
                 key={feature.title}
                 variants={itemVariants}
-                whileHover={{ scale: 1.05, rotate: 1 }}
-                className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
-              >
+              whileHover={{ scale: 1.05, rotate: 1 }}
+              className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700"
+            >
                 <motion.div
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
@@ -119,8 +113,8 @@ const About = () => {
                 >
                   <feature.icon className="text-white" size={24} />
                 </motion.div>
-                <h4 className="font-bold text-lg mb-2">{feature.title}</h4>
-                <p className="text-gray-600 text-sm">{feature.description}</p>
+                <h4 className="font-bold text-lg mb-2 dark:text-white">{feature.title}</h4>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">{feature.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -149,7 +143,7 @@ const About = () => {
               <div className="text-4xl font-bold gradient-text mb-2">
                 {stat.number}
               </div>
-              <div className="text-gray-600">{stat.label}</div>
+              <div className="text-gray-600 dark:text-gray-400">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>

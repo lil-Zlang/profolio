@@ -43,8 +43,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'guizhiliang7@gmail.com',
-      href: 'mailto:guizhiliang7@gmail.com',
+      value: 'lang.gui.bu@gmail.com',
+      href: 'mailto:lang.gui.bu@gmail.com',
     },
     {
       icon: Phone,
@@ -55,7 +55,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Location',
-      value: 'Boston, MA',
+      value: 'San Francisco, CA',
       href: null,
     },
   ]

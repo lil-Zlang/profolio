@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { Code2, Cloud, Users, Cpu, Zap, Layers } from 'lucide-react'
 
 const Skills = () => {
   const [ref, inView] = useInView({
@@ -11,149 +12,169 @@ const Skills = () => {
 
   const skillCategories = [
     {
+      icon: Code2,
       title: 'Core Engineering',
-      skills: [
-        { name: 'Python (PyTorch/Flask)', level: 95 },
-        { name: 'C++/C (Embedded)', level: 92 },
-        { name: 'ROS2 & Embedded Systems', level: 88 },
-        { name: 'SQL', level: 85 },
-      ],
+      color: 'from-blue-500 to-cyan-500',
+      skills: ['Python (PyTorch/Flask)', 'C++/C (Embedded)', 'ROS2 & Embedded Systems', 'SQL'],
     },
     {
+      icon: Cloud,
       title: 'Cloud & DevOps',
-      skills: [
-        { name: 'AWS & Docker', level: 85 },
-        { name: 'CI/CD (GitHub Actions)', level: 88 },
-        { name: 'Linux & Git', level: 92 },
-        { name: 'Node.js', level: 85 },
-      ],
+      color: 'from-purple-500 to-pink-500',
+      skills: ['AWS & Docker', 'CI/CD (GitHub Actions)', 'Linux & Git', 'Node.js'],
     },
     {
+      icon: Users,
       title: 'Solutions & Leadership',
-      skills: [
-        { name: 'Technical Presentations', level: 95 },
-        { name: 'Stakeholder Communication', level: 93 },
-        { name: 'Agile Project Management', level: 90 },
-        { name: 'Cross-functional Collaboration', level: 92 },
-      ],
+      color: 'from-orange-500 to-red-500',
+      skills: ['Technical Presentations', 'Stakeholder Communication', 'Agile Project Management', 'Cross-functional Collaboration'],
     },
   ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6 },
-    },
-  }
+  const technologies = [
+    { name: 'LangGraph', icon: Layers },
+    { name: 'TensorFlow', icon: Cpu },
+    { name: 'ESP-IDF', icon: Zap },
+    { name: 'Paraview', icon: Code2 },
+    { name: 'Jira', icon: Users },
+    { name: 'PyTorch Lightning', icon: Cpu },
+    { name: 'RViz', icon: Layers },
+    { name: 'UART/I2C', icon: Zap },
+    { name: 'PID Control', icon: Cpu },
+    { name: 'IoT Prototyping', icon: Zap },
+  ]
 
   return (
-    <section id="skills" className="section-padding bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-6xl mx-auto" ref={ref}>
+    <section id="skills" className="section-padding bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            My <span className="gradient-text">Skills</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
+            My <span className="gradient-text">Expertise</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            A comprehensive toolkit of technologies and frameworks I use to bring
-            ideas to life.
+          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+            A comprehensive toolkit spanning embedded systems, cloud infrastructure, and leadership.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          className="grid md:grid-cols-3 gap-8"
-        >
-          {skillCategories.map((category, categoryIndex) => (
+        {/* Apple-style skill cards */}
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}
-              variants={itemVariants}
-              whileHover={{ y: -10 }}
-              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all"
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden"
             >
-              <h3 className="text-2xl font-bold mb-6 gradient-text">
-                {category.title}
-              </h3>
-              <div className="space-y-6">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between mb-2">
-                      <span className="font-medium text-gray-700">
-                        {skill.name}
-                      </span>
-                      <span className="text-gray-500">{skill.level}%</span>
-                    </div>
-                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+              {/* Gradient background effect on hover */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+              
+              <div className="relative z-10">
+                {/* Icon */}
+                <motion.div
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
+                  className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-6 shadow-lg`}
+                >
+                  <category.icon className="text-white" size={28} />
+                </motion.div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-bold mb-6 dark:text-white">
+                  {category.title}
+                </h3>
+
+                {/* Skills list */}
+                <div className="space-y-3">
+                  {category.skills.map((skill, i) => (
+                    <motion.div
+                      key={skill}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={inView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: index * 0.1 + i * 0.05 + 0.3 }}
+                      className="flex items-center gap-3 group/item"
+                    >
                       <motion.div
-                        initial={{ width: 0 }}
-                        animate={inView ? { width: `${skill.level}%` } : {}}
-                        transition={{
-                          duration: 1,
-                          delay: categoryIndex * 0.2 + skillIndex * 0.1,
-                          ease: 'easeOut',
-                        }}
-                        className="h-full bg-gradient-to-r from-purple-600 to-pink-600 rounded-full"
+                        whileHover={{ scale: 1.5 }}
+                        className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${category.color}`}
                       />
-                    </div>
-                  </div>
-                ))}
+                      <span className="text-gray-700 dark:text-gray-300 group-hover/item:text-gray-900 dark:group-hover/item:text-white transition-colors">
+                        {skill}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
+
+              {/* Hover border glow */}
+              <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br ${category.color} -z-10 blur-xl`} />
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Additional skill badges */}
+        {/* Technologies - Apple-style chip design */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16"
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-center"
         >
-          <h3 className="text-2xl font-bold text-center mb-8">
-            Also Experienced With
+          <h3 className="text-2xl font-bold mb-8 dark:text-white">
+            Technologies & Tools
           </h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              'LangGraph',
-              'TensorFlow',
-              'ESP-IDF',
-              'Paraview',
-              'Jira',
-              'PyTorch Lightning',
-              'RViz',
-              'UART/I2C',
-              'PID Control',
-              'IoT Prototyping',
-            ].map((tech, index) => (
+          <div className="flex flex-wrap justify-center gap-3">
+            {technologies.map((tech, index) => (
               <motion.div
-                key={tech}
-                initial={{ scale: 0, rotate: -180 }}
-                animate={inView ? { scale: 1, rotate: 0 } : {}}
-                transition={{ delay: 0.8 + index * 0.05, duration: 0.5 }}
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                className="px-6 py-3 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full font-medium text-gray-700 shadow-md hover:shadow-lg transition-shadow"
+                key={tech.name}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={inView ? { scale: 1, opacity: 1 } : {}}
+                transition={{ 
+                  delay: 0.6 + index * 0.03, 
+                  duration: 0.4,
+                  type: "spring",
+                  stiffness: 200
+                }}
+                whileHover={{ 
+                  scale: 1.1, 
+                  y: -5,
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.15)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative px-6 py-3 bg-white dark:bg-gray-800 rounded-full font-medium text-gray-700 dark:text-gray-300 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 cursor-pointer overflow-hidden"
               >
-                {tech}
+                {/* Gradient background on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Content */}
+                <div className="relative flex items-center gap-2">
+                  <tech.icon size={16} className="text-gray-500 dark:text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors" />
+                  <span className="group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
+                    {tech.name}
+                  </span>
+                </div>
               </motion.div>
             ))}
+          </div>
+        </motion.div>
+
+        {/* Apple-style decorative element */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ delay: 1, duration: 1 }}
+          className="mt-20 text-center"
+        >
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/20 rounded-full border border-purple-200 dark:border-purple-800">
+            <Zap className="text-purple-600 dark:text-purple-400" size={20} />
+            <span className="text-gray-700 dark:text-gray-300 font-medium">
+              Always learning, always building
+            </span>
           </div>
         </motion.div>
       </div>
@@ -162,4 +183,3 @@ const Skills = () => {
 }
 
 export default Skills
-
