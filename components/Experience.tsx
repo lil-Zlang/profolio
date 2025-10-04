@@ -10,13 +10,16 @@ const Experience = () => {
     threshold: 0.1,
   })
 
+  // GitHub Pages basePath
+  const basePath = process.env.NODE_ENV === 'production' ? '/profolio' : ''
+
   const experiences = [
     {
       company: 'EasyBee AI',
       role: 'Full-Stack & LLM Engineer',
       location: 'San Francisco, CA',
       period: '2025 - Present',
-      logo: '/logos/easybee.png',
+      logo: `${basePath}/logos/easybee.png`,
       achievements: [
         'Architected and pioneered a multi-agent LLM system that transformed the user experience, simplifying complex travel booking and leading to a 40% increase in customer conversion',
         'Translated client visions into a robust product roadmap, spearheading the delivery of a zero-downtime platform engineered for a rapidly expanding user base',
@@ -28,7 +31,7 @@ const Experience = () => {
       role: 'Machine Learning Engineering Intern',
       location: 'Austin, TX',
       period: 'Summer 2024',
-      logo: '/logos/cadence.png',
+      logo: `${basePath}/logos/cadence.png`,
       achievements: [
         'Engineered and deployed a U-Net thermal model that proved a 5% improvement in data center efficiency for enterprise clients, directly impacting operational sustainability',
         'Innovated a 3D visualization tool with Paraview that empowered non-technical stakeholders, demystifying complex ML diagnostics and accelerating hardware validation by 15%',
