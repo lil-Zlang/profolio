@@ -14,13 +14,13 @@ const Projects = () => {
     {
       title: 'AI Content Detective 🕵️',
       description: [
-        'Advanced NLP system for detecting AI-generated content',
-        'Machine learning models with high accuracy detection',
-        'Helps maintain content integrity and combat misinformation',
-        'Supports content creators, educators, and platforms'
+        'Built a React-TypeScript web app that detects AI-generated images, videos, or URLs in real time, delivering a confidence score and detailed rationale.',
+        'Uses a Supabase Edge Function (Deno) to call an external AI-analysis gateway, aggregating multi-layer visual and textual indicators.',
+        'Modern UI powered by TailwindCSS and ShadCN components with instant Vite hot-reload for smooth developer experience.',
+        'End-to-end flow: drag-and-drop upload → serverless AI detection → animated results display, all in <1 s round-trip on typical images.'
       ],
       image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
-      tags: ['Python', 'Machine Learning', 'NLP', 'TensorFlow', 'Transformers'],
+      tags: ['React', 'TypeScript', 'Supabase', 'TailwindCSS', 'Vite'],
       github: 'https://github.com/lil-Zlang/ai-content-detective',
       demo: 'https://github.com/lil-Zlang/ai-content-detective',
       color: 'from-cyan-500 to-blue-500',
@@ -28,13 +28,13 @@ const Projects = () => {
     {
       title: 'Reel or Fake 📺',
       description: [
-        'Comprehensive fake news and media detection platform',
-        'Computer vision and NLP for authenticity verification',
-        'Analyzes video, audio, and text content for deepfakes',
-        'Empowers informed decision-making against misinformation'
+        'Built "Reel or Fake," a React + TypeScript browser game that challenges players to spot AI-generated movie clips in four fast-paced betting rounds.',
+        'Designed an engaging casino-style UI with TailwindCSS & shadcn/ui, featuring autoplay videos, animated feedback, and dynamic credit wagering.',
+        'Engineered a self-contained state machine in one page component (no Redux) with local-storage high-score persistence and future-ready Supabase integration.',
+        'Achieved instant (<50 ms) dev-reloads via Vite and maintained fully typed code, delivering a fun, production-ready showcase of AI-content detection mechanics.'
       ],
       image: 'https://images.unsplash.com/photo-1611605698335-8b1569810432?w=800&q=80',
-      tags: ['React', 'Computer Vision', 'Deep Learning', 'OpenCV', 'JavaScript'],
+      tags: ['React', 'TypeScript', 'TailwindCSS', 'Vite', 'Supabase'],
       github: 'https://github.com/lil-Zlang/reel-or-fake',
       demo: 'https://github.com/lil-Zlang/reel-or-fake',
       color: 'from-red-500 to-orange-500',
