@@ -13,8 +13,12 @@ const Projects = () => {
   const projects = [
     {
       title: 'AI Content Detective 🕵️',
-      description:
-        'Challenge: With the rise of AI-generated content, distinguishing between human and machine-written text has become critical for content authenticity. Solution: Developed an intelligent detection system using advanced NLP and machine learning techniques to identify AI-generated content with high accuracy. Impact: Provides content creators, educators, and platforms with reliable tools to maintain content integrity and combat misinformation.',
+      description: [
+        'Advanced NLP system for detecting AI-generated content',
+        'Machine learning models with high accuracy detection',
+        'Helps maintain content integrity and combat misinformation',
+        'Supports content creators, educators, and platforms'
+      ],
       image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
       tags: ['Python', 'Machine Learning', 'NLP', 'TensorFlow', 'Transformers'],
       github: 'https://github.com/lil-Zlang/ai-content-detective',
@@ -23,8 +27,12 @@ const Projects = () => {
     },
     {
       title: 'Reel or Fake 📺',
-      description:
-        'Challenge: The proliferation of deepfakes and manipulated media threatens information integrity and public trust. Solution: Built a comprehensive fake news and media detection platform using computer vision and NLP to analyze video, audio, and text content for authenticity markers. Impact: Empowers users to verify media authenticity, supporting informed decision-making and combating digital misinformation.',
+      description: [
+        'Comprehensive fake news and media detection platform',
+        'Computer vision and NLP for authenticity verification',
+        'Analyzes video, audio, and text content for deepfakes',
+        'Empowers informed decision-making against misinformation'
+      ],
       image: 'https://images.unsplash.com/photo-1611605698335-8b1569810432?w=800&q=80',
       tags: ['React', 'Computer Vision', 'Deep Learning', 'OpenCV', 'JavaScript'],
       github: 'https://github.com/lil-Zlang/reel-or-fake',
@@ -33,8 +41,12 @@ const Projects = () => {
     },
     {
       title: 'Project Independence: Semi-Autonomous Cycle 🏆',
-      description:
-        'Challenge: To grant greater mobility and independence to the visually impaired through safe, intuitive navigation. Solution: COE Societal Impact Award winner - engineered comprehensive embedded system using ROS2, integrating haptic feedback and voice modules. Impact: Achieved 92% navigation accuracy in virtual testing, demonstrating a viable solution that could profoundly improve users\' daily lives.',
+      description: [
+        'COE Societal Impact Award winner for assistive technology',
+        'ROS2-based embedded system with haptic feedback',
+        '92% navigation accuracy for visually impaired users',
+        'Integrates voice modules and Google Maps API'
+      ],
       image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
       tags: ['ROS2', 'Embedded Systems', 'Google Maps API', 'Computer Vision'],
       github: 'https://github.com/lil-Zlang',
@@ -43,8 +55,12 @@ const Projects = () => {
     },
     {
       title: 'The AI Co-Pilot: Reimagining Travel',
-      description:
-        'Challenge: The modern travel booking process is fragmented and overwhelming. Solution: Developed multi-agent LLM system using LangGraph that intelligently plans, adapts, and books travel itineraries based on user preferences and real-time data. Impact: Drove a 40% increase in booking conversions by creating a seamless, intelligent, and highly personalized user experience.',
+      description: [
+        'Multi-agent LLM system for intelligent travel planning',
+        'Adapts and books itineraries based on user preferences',
+        '40% increase in booking conversions achieved',
+        'Seamless integration with real-time data and APIs'
+      ],
       image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80',
       tags: ['LangGraph', 'LLM', 'Airtable', 'Voiceflow', 'Google Calendar API'],
       github: 'https://github.com/lil-Zlang',
@@ -53,8 +69,12 @@ const Projects = () => {
     },
     {
       title: 'Personal Assistive Robot',
-      description:
-        'Challenge: Create a reliable, low-cost autonomous robot for indoor assistance. Solution: Built system from ground up on ESP32 microcontroller, implementing PID control for precise movement and real-time collision avoidance using Sharp IR sensors. Impact: Achieved smooth, autonomous navigation and object avoidance in complex indoor environments, showcasing efficient embedded systems design.',
+      description: [
+        'Low-cost autonomous robot built on ESP32 microcontroller',
+        'PID control system for precise movement and navigation',
+        'Real-time collision avoidance using Sharp IR sensors',
+        'Smooth autonomous operation in complex indoor environments'
+      ],
       image: 'https://images.unsplash.com/photo-1563207153-f403bf289096?w=800&q=80',
       tags: ['ESP32', 'PID Control', 'Embedded C', 'Real-Time Systems'],
       github: 'https://github.com/lil-Zlang',
@@ -63,8 +83,12 @@ const Projects = () => {
     },
     {
       title: 'Secure E-Voting: Decentralized Platform',
-      description:
-        'Challenge: Design a secure and transparent electronic voting system resistant to single points of failure. Solution: Architected full-stack platform featuring peer-to-peer UDP communication between ESP32 devices and Bully algorithm for leader election. Impact: Delivered real-time, decentralized voting system with live monitoring dashboard, providing proof-of-concept for secure digital democracy.',
+      description: [
+        'Secure electronic voting system resistant to single points of failure',
+        'Peer-to-peer UDP communication between ESP32 devices',
+        'Bully algorithm implementation for leader election',
+        'Real-time monitoring dashboard for transparent digital democracy'
+      ],
       image: 'https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?w=800&q=80',
       tags: ['ESP32', 'Node.js', 'UDP', 'TingoDB', 'Distributed Systems'],
       github: 'https://github.com/lil-Zlang',
@@ -73,8 +97,12 @@ const Projects = () => {
     },
     {
       title: 'FitCat - Activity Tracking',
-      description:
-        'Real-time multi-cat activity tracking IoT system with ESP32-based collars featuring accelerometers. Full-stack platform with Raspberry Pi server and dynamic activity leaderboard.',
+      description: [
+        'Real-time multi-cat activity tracking IoT system',
+        'ESP32-based smart collars with accelerometers',
+        'Full-stack platform with Raspberry Pi server',
+        'Dynamic activity leaderboard and health monitoring'
+      ],
       image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&q=80',
       tags: ['ESP32', 'IoT', 'Node.js', 'Raspberry Pi', 'UDP'],
       github: 'https://github.com',
@@ -83,8 +111,12 @@ const Projects = () => {
     },
     {
       title: 'U-Net Thermal Model',
-      description:
-        'ML model for data center thermal prediction achieving 5% accuracy improvement and 20% latency reduction. Created 3D visualization tool with Paraview for thermal pattern diagnostics.',
+      description: [
+        'ML model for data center thermal prediction and optimization',
+        '5% accuracy improvement and 20% latency reduction achieved',
+        '3D visualization tool built with Paraview integration',
+        'Advanced thermal pattern diagnostics and analysis'
+      ],
       image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80',
       tags: ['PyTorch', 'U-Net', 'Paraview', 'Computer Vision'],
       github: 'https://github.com',
@@ -124,8 +156,8 @@ const Projects = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
             <span className="gradient-text">A Showcase of My Work</span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-            Here are a few projects that represent my passion for solving meaningful problems through technology.
+          <p className="text-gray-800 dark:text-gray-200 text-lg max-w-2xl mx-auto">
+            Projects that solve real problems with innovative technology.
           </p>
         </motion.div>
 
@@ -179,17 +211,28 @@ const Projects = () => {
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 group-hover:text-purple-600 transition-colors">
+                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-purple-600 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 mb-4 text-sm">
-                  {project.description}
-                </p>
+                <div className="text-gray-700 dark:text-gray-300 mb-4 text-sm">
+                  {Array.isArray(project.description) ? (
+                    <ul className="space-y-1">
+                      {project.description.map((point, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="text-purple-500 mr-2 mt-1 text-xs">•</span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>{project.description}</p>
+                  )}
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
+                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full"
                     >
                       {tag}
                     </span>
