@@ -211,28 +211,28 @@ const Projects = () => {
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-purple-600 transition-colors">
+                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-purple-600 transition-colors">
                   {project.title}
                 </h3>
-                <div className="text-gray-700 dark:text-gray-300 mb-4 text-sm">
+                <div className="text-gray-800 dark:text-gray-200 mb-4 text-sm">
                   {Array.isArray(project.description) ? (
-                    <ul className="space-y-1">
+                    <ul className="space-y-2">
                       {project.description.map((point, index) => (
                         <li key={index} className="flex items-start">
-                          <span className="text-purple-500 mr-2 mt-1 text-xs">•</span>
-                          <span>{point}</span>
+                          <span className="text-purple-600 mr-3 mt-0.5 text-sm font-bold">•</span>
+                          <span className="text-gray-800 dark:text-gray-200 leading-relaxed">{point}</span>
                         </li>
                       ))}
                     </ul>
                   ) : (
-                    <p>{project.description}</p>
+                    <p className="text-gray-800 dark:text-gray-200">{project.description}</p>
                   )}
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full"
+                      className="px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full font-medium"
                     >
                       {tag}
                     </span>
