@@ -12,6 +12,26 @@ const Projects = () => {
 
   const projects = [
     {
+      title: 'AI Content Detective 🕵️',
+      description:
+        'Challenge: With the rise of AI-generated content, distinguishing between human and machine-written text has become critical for content authenticity. Solution: Developed an intelligent detection system using advanced NLP and machine learning techniques to identify AI-generated content with high accuracy. Impact: Provides content creators, educators, and platforms with reliable tools to maintain content integrity and combat misinformation.',
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
+      tags: ['Python', 'Machine Learning', 'NLP', 'TensorFlow', 'Transformers'],
+      github: 'https://github.com/lil-Zlang/ai-content-detective',
+      demo: 'https://github.com/lil-Zlang/ai-content-detective',
+      color: 'from-cyan-500 to-blue-500',
+    },
+    {
+      title: 'Reel or Fake 📺',
+      description:
+        'Challenge: The proliferation of deepfakes and manipulated media threatens information integrity and public trust. Solution: Built a comprehensive fake news and media detection platform using computer vision and NLP to analyze video, audio, and text content for authenticity markers. Impact: Empowers users to verify media authenticity, supporting informed decision-making and combating digital misinformation.',
+      image: 'https://images.unsplash.com/photo-1611605698335-8b1569810432?w=800&q=80',
+      tags: ['React', 'Computer Vision', 'Deep Learning', 'OpenCV', 'JavaScript'],
+      github: 'https://github.com/lil-Zlang/reel-or-fake',
+      demo: 'https://github.com/lil-Zlang/reel-or-fake',
+      color: 'from-red-500 to-orange-500',
+    },
+    {
       title: 'Project Independence: Semi-Autonomous Cycle 🏆',
       description:
         'Challenge: To grant greater mobility and independence to the visually impaired through safe, intuitive navigation. Solution: COE Societal Impact Award winner - engineered comprehensive embedded system using ROS2, integrating haptic feedback and voice modules. Impact: Achieved 92% navigation accuracy in virtual testing, demonstrating a viable solution that could profoundly improve users\' daily lives.',
