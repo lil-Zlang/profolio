@@ -16,20 +16,25 @@ Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
 
 ## 🌐 Deployment
 
-This site is configured to automatically deploy to GitHub Pages when you push to the `main` branch.
+This site is optimized for deployment on Vercel.
 
-### First-Time Setup:
-1. Go to your repository Settings → Pages
-2. Under "Build and deployment":
-   - **Source**: Select "GitHub Actions"
-3. Push to main branch - the site will automatically build and deploy
+### Vercel Deployment:
+1. Connect your GitHub repository to Vercel
+2. Vercel will automatically detect this as a Next.js project
+3. Deploy with default settings - no additional configuration needed
+4. Automatic deployments on every push to `main` branch
 
 ### Manual Deployment:
 ```bash
-# Build for production
-npm run build
+# Install Vercel CLI
+npm i -g vercel
 
-# The static site will be in the 'out' folder
+# Deploy to Vercel
+vercel
+
+# Or build locally
+npm run build
+npm start
 ```
 
 ## 🛠️ Built With
