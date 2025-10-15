@@ -1,24 +1,27 @@
 'use client'
 
+import { useState, useRef } from 'react'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
-import About from '@/components/About'
-import Experience from '@/components/Experience'
-import Skills from '@/components/Skills'
-import Projects from '@/components/Projects'
-import Contact from '@/components/Contact'
+import SinglePagePortfolio from '@/components/SinglePagePortfolio'
 import Footer from '@/components/Footer'
 
 export default function Home() {
+  const [expandedSection, setExpandedSection] = useState<string | null>(null)
+  const portfolioRef = useRef<any>(null)
+
+  const handleSectionClick = (section: string) => {
+    setExpandedSection(section || null)
+    if (portfolioRef.current && portfolioRef.current.toggleSection) {
+      portfolioRef.current.toggleSection(section)
+    }
+  }
+
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
-      <Navbar />
+    <main className="min-h-screen bg-white">
+      <Navbar onSectionClick={handleSectionClick} />
       <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Contact />
+      <SinglePagePortfolio ref={portfolioRef} />
       <Footer />
     </main>
   )
