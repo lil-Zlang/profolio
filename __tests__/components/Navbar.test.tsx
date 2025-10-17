@@ -1,48 +1,47 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import Navbar from '@/components/Navbar'
 
-// Mock framer-motion
-jest.mock('framer-motion', () => ({
-  motion: {
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-    nav: ({ children, ...props }: any) => <nav {...props}>{children}</nav>,
-    a: ({ children, ...props }: any) => <a {...props}>{children}</a>,
-    button: ({ children, ...props }: any) => <button {...props}>{children}</button>,
-  },
-  AnimatePresence: ({ children }: any) => children,
-}))
-
 describe('Navbar Component', () => {
   it('renders the navbar with logo', () => {
     render(<Navbar />)
-    expect(screen.getByText('Portfolio')).toBeInTheDocument()
+    expect(screen.getByText('ZG')).toBeInTheDocument()
   })
 
   it('renders all navigation items', () => {
     render(<Navbar />)
-    expect(screen.getAllByText('Home').length).toBeGreaterThan(0)
-    expect(screen.getAllByText('About').length).toBeGreaterThan(0)
-    expect(screen.getAllByText('Skills').length).toBeGreaterThan(0)
-    expect(screen.getAllByText('Projects').length).toBeGreaterThan(0)
-    expect(screen.getAllByText('Contact').length).toBeGreaterThan(0)
+    expect(screen.getByText('About')).toBeInTheDocument()
+    expect(screen.getByText('Experience')).toBeInTheDocument()
+    expect(screen.getByText('Skills')).toBeInTheDocument()
+    expect(screen.getByText('Projects')).toBeInTheDocument()
+    expect(screen.getByText('Contact')).toBeInTheDocument()
   })
 
-  it('has correct href attributes for navigation links', () => {
+  it('renders social links', () => {
     render(<Navbar />)
-    const homeLinks = screen.getAllByText('Home')
-    const firstHomeLink = homeLinks[0].closest('a')
-    expect(firstHomeLink).toHaveAttribute('href', '#home')
+    expect(screen.getByText('GitHub')).toBeInTheDocument()
+    expect(screen.getByText('LinkedIn')).toBeInTheDocument()
+    expect(screen.getByText('Email')).toBeInTheDocument()
   })
 
   it('toggles mobile menu when button is clicked', () => {
     render(<Navbar />)
-    const menuButton = screen.getByLabelText('Toggle menu')
-    
+    const menuButton = screen.getByText('☰')
+
     fireEvent.click(menuButton)
-    // Menu should be open (this would show mobile nav items)
-    
-    fireEvent.click(menuButton)
-    // Menu should be closed
+    expect(screen.getByText('✕')).toBeInTheDocument()
+
+    fireEvent.click(screen.getByText('✕'))
+    expect(screen.getByText('☰')).toBeInTheDocument()
+  })
+
+  it('calls onSectionClick when navigation item is clicked', () => {
+    const mockOnSectionClick = jest.fn()
+    render(<Navbar onSectionClick={mockOnSectionClick} />)
+
+    const aboutButton = screen.getByText('About')
+    fireEvent.click(aboutButton)
+
+    expect(mockOnSectionClick).toHaveBeenCalledWith('about')
   })
 })
 

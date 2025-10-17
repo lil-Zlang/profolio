@@ -1,21 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-
-interface NavbarProps {
-  onSectionClick?: (section: string) => void
-}
+import { NavbarProps } from '@/types'
+import { navItems, socialLinks } from '@/data/portfolio'
 
 const Navbar = ({ onSectionClick }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false)
-
-  const navItems = [
-    { name: 'About', section: 'about' },
-    { name: 'Experience', section: 'experience' },
-    { name: 'Skills', section: 'skills' },
-    { name: 'Projects', section: 'projects' },
-    { name: 'Contact', section: 'contact' },
-  ]
 
   const handleSectionClick = (section: string) => {
     if (onSectionClick) {
@@ -51,28 +41,17 @@ const Navbar = ({ onSectionClick }: NavbarProps) => {
 
           {/* Social Links */}
           <div className="hidden md:flex items-center space-x-6">
-            <a
-              href="https://github.com/lil-Zlang"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-black transition-colors"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/zhilang-gui-b5b59b254/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-black transition-colors"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="mailto:lang.gui.bu@gmail.com"
-              className="text-gray-600 hover:text-black transition-colors"
-            >
-              Email
-            </a>
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-black transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
 
           {/* Mobile menu button */}
@@ -99,28 +78,17 @@ const Navbar = ({ onSectionClick }: NavbarProps) => {
               </button>
             ))}
             <div className="pt-4 border-t border-gray-200 space-y-2">
-              <a
-                href="https://github.com/lil-Zlang"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-gray-600 hover:text-black transition-colors"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://www.linkedin.com/in/zhilang-gui-b5b59b254/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-gray-600 hover:text-black transition-colors"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="mailto:lang.gui.bu@gmail.com"
-                className="block text-gray-600 hover:text-black transition-colors"
-              >
-                Email
-              </a>
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-gray-600 hover:text-black transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
             </div>
           </div>
         </div>

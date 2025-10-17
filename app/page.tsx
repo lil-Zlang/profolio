@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef } from 'react'
+import { SinglePagePortfolioRef } from '@/types'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import SinglePagePortfolio from '@/components/SinglePagePortfolio'
@@ -8,13 +9,11 @@ import Footer from '@/components/Footer'
 
 export default function Home() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null)
-  const portfolioRef = useRef<any>(null)
+  const portfolioRef = useRef<SinglePagePortfolioRef>(null)
 
-  const handleSectionClick = (section: string) => {
+  const handleSectionClick = (section: string): void => {
     setExpandedSection(section || null)
-    if (portfolioRef.current && portfolioRef.current.toggleSection) {
-      portfolioRef.current.toggleSection(section)
-    }
+    portfolioRef.current?.toggleSection(section)
   }
 
   return (
