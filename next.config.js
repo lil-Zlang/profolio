@@ -6,5 +6,5 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig. 23
+module.exports = nextConfig
 
