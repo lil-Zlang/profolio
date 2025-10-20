@@ -1,15 +1,30 @@
+import Image from 'next/image'
+
 const Hero = () => {
   return (
     <section className="py-12 bg-white border-b border-gray-200">
       <div className="max-w-4xl mx-auto px-8 text-center">
+        <div className="mb-6 flex justify-center">
+          <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-black bg-white">
+            <Image
+              src="/profile.png"
+              alt="Zhilang Gui"
+              width={128}
+              height={128}
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+
         <h1 className="text-3xl md:text-4xl font-bold mb-4 text-black">
           Zhilang Gui
         </h1>
-        
+
         <p className="text-lg md:text-xl mb-4 text-gray-700">
           Solution Engineer
         </p>
-        
+
         <p className="text-base mb-8 text-gray-600 max-w-2xl mx-auto">
           I build intelligent systems that bridge complex algorithms with intuitive, real-world solutions.
         </p>

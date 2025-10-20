@@ -25,8 +25,8 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
       {/* About Section */}
       <ExpandableSection
         id="about"
-        title="About"
-        subtitle="How I make complex technology feel human"
+        title="About Me"
+        subtitle="Problem → Code → Solution."
         isExpanded={expandedSection === 'about'}
         onToggle={toggleSection}
       >
@@ -45,14 +45,25 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
       <ExpandableSection
         id="experience"
         title="Experience"
-        subtitle="EasyBee AI • Cadence Design Systems"
+        subtitle="EasyBee AI • Cadence • Terrier Motorsports • HCI Lab"
         isExpanded={expandedSection === 'experience'}
         onToggle={toggleSection}
       >
         <div className="space-y-8">
           {experiences.map((exp) => (
             <div key={exp.company} className="border-l-2 border-gray-200 pl-6">
-              <h3 className="text-lg font-bold text-black">{exp.company}</h3>
+              {exp.url ? (
+                <a
+                  href={exp.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-lg font-bold text-black hover:underline"
+                >
+                  {exp.company}
+                </a>
+              ) : (
+                <h3 className="text-lg font-bold text-black">{exp.company}</h3>
+              )}
               <p className="text-gray-700 font-medium">{exp.role}</p>
               <p className="text-sm text-gray-600 mb-3">{exp.period} • {exp.location}</p>
               <BulletList items={exp.achievements} />
@@ -83,7 +94,7 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
       <ExpandableSection
         id="projects"
         title="Projects"
-        subtitle="AI Content Detective • Semi-Autonomous Cycle • Travel Co-Pilot"
+        subtitle="E-Voting • FitCat • Assistive Robot • RISC-V Processor • More"
         isExpanded={expandedSection === 'projects'}
         onToggle={toggleSection}
       >
@@ -95,14 +106,26 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
               <div className="mb-3">
                 <TagList tags={project.tags} />
               </div>
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-black hover:underline text-sm"
-              >
-                View Code →
-              </a>
+              <div className="flex gap-4">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-black hover:underline text-sm"
+                >
+                  View Code →
+                </a>
+                {project.url && (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    Live Demo →
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>

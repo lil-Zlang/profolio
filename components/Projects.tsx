@@ -1,42 +1,6 @@
+import { projects } from '@/data/portfolio'
+
 const Projects = () => {
-  const projects = [
-    {
-      title: 'AI Content Detective',
-      description: 'React-TypeScript web app that detects AI-generated images, videos, or URLs in real time with confidence scores.',
-      tags: ['React', 'TypeScript', 'Supabase', 'TailwindCSS'],
-      github: 'https://github.com/lil-Zlang/ai-content-detective',
-    },
-    {
-      title: 'Reel or Fake',
-      description: 'Browser game challenging players to spot AI-generated movie clips in fast-paced betting rounds.',
-      tags: ['React', 'TypeScript', 'TailwindCSS', 'Vite'],
-      github: 'https://github.com/lil-Zlang/reel-or-fake',
-    },
-    {
-      title: 'Semi-Autonomous Cycle',
-      description: 'COE Societal Impact Award winner. ROS2-based embedded system with 92% navigation accuracy for visually impaired users.',
-      tags: ['ROS2', 'Embedded Systems', 'Computer Vision'],
-      github: 'https://github.com/lil-Zlang',
-    },
-    {
-      title: 'AI Travel Co-Pilot',
-      description: 'Multi-agent LLM system for intelligent travel planning. Achieved 40% increase in booking conversions.',
-      tags: ['LangGraph', 'LLM', 'Airtable', 'APIs'],
-      github: 'https://github.com/lil-Zlang',
-    },
-    {
-      title: 'Personal Assistive Robot',
-      description: 'Low-cost autonomous robot with PID control and real-time collision avoidance using Sharp IR sensors.',
-      tags: ['ESP32', 'PID Control', 'Embedded C'],
-      github: 'https://github.com/lil-Zlang',
-    },
-    {
-      title: 'U-Net Thermal Model',
-      description: 'ML model for data center thermal prediction with 5% accuracy improvement and 20% latency reduction.',
-      tags: ['PyTorch', 'U-Net', 'Paraview'],
-      github: 'https://github.com/lil-Zlang',
-    },
-  ]
 
   return (
     <section id="projects" className="py-20 px-8 bg-gray-50">
@@ -62,14 +26,26 @@ const Projects = () => {
                   </span>
                 ))}
               </div>
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-black hover:underline"
-              >
-                View Code →
-              </a>
+              <div className="flex gap-4">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-black hover:underline"
+                >
+                  View Code →
+                </a>
+                {project.url && (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    Live Demo →
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>

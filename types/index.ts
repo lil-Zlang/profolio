@@ -5,6 +5,7 @@ export interface Experience {
   location: string
   period: string
   achievements: string[]
+  url?: string
 }
 
 export interface SkillCategory {
@@ -17,6 +18,7 @@ export interface Project {
   description: string
   tags: string[]
   github: string
+  url?: string
 }
 
 export interface Stat {
