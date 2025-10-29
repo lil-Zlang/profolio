@@ -235,3 +235,180 @@ Time: [Current Time]
 
 ## CONCLUSION
 Successfully transformed a complex, animation-heavy portfolio into a clean, minimal, and professional presentation that prioritizes content and usability over visual effects. The addition of the single-page expandable layout further improves user experience by providing instant overview with progressive disclosure of details. The removal of automated GitHub deployment provides manual control over releases. The new design aligns with modern minimalist trends while maintaining full functionality and improving performance across all metrics.
+
+## SF WEEKLY NEWS DIGEST PROJECT ADDITION
+=====================================
+
+Date: October 29, 2025
+Time: Current Session
+
+### PROJECT ADDED TO PORTFOLIO
+
+#### SF Weekly News Digest
+**Description**: AI-powered platform that aggregates and summarizes San Francisco news from 20+ local sources. Features weekly AI-curated summaries, interactive Q&A chatbot, and automated Saturday updates via Vercel Cron.
+
+**Technical Stack**:
+- Next.js 16 with App Router
+- TypeScript for type-safe development
+- PostgreSQL database with Prisma ORM
+- Novita AI API for LLM-powered summarization and Q&A
+- NewsAPI.org and Google News RSS for news aggregation
+- Automated Vercel Cron Jobs for weekly updates
+
+**Key Features**:
+- Weekly news aggregation from 20+ San Francisco-specific sources
+- AI-powered news summarization and analysis across 4 categories (Technology, Politics, Economy, SF Local)
+- Interactive Q&A chatbot for deeper news exploration
+- Multi-week navigation for historical news browsing
+- Responsive, mobile-first design
+- Automated news fetching every Saturday at 8:00 AM UTC
+
+**Project Links**:
+- GitHub Repository: https://github.com/lil-Zlang/SF-Narrative
+- Live Demo: https://sf-narrative.vercel.app
+
+**Tags**: Next.js, TypeScript, PostgreSQL, Prisma, AI/LLM, #10weeks10apps
+
+### CHANGES MADE
+
+#### Files Modified
+- **data/portfolio.ts**: Added SF Weekly News Digest as the first project in the projects array (most recent project position)
+
+### TECHNICAL DETAILS
+
+#### Project Structure
+The SF-Narrative project includes:
+- **Frontend**: Next.js components with split-screen battle interface, timeline, and modals
+- **Backend**: Next.js API routes for data operations (news-qa, weekly-news, seed-weekly-news-real)
+- **Database**: PostgreSQL with Prisma ORM for storing narratives, votes, and news articles
+- **External APIs**: Novita AI for LLM capabilities, NewsAPI.org for news aggregation
+- **Automation**: Vercel Cron Jobs for scheduled weekly news updates
+
+#### Implementation Quality
+✅ **Complete Full-Stack Implementation**: Frontend, backend, database, and external API integration
+✅ **Automated Workflow**: Cron job setup for weekly news fetching
+✅ **Production Deployment**: Live on Vercel with proper domain
+✅ **AI/LLM Integration**: Advanced AI features for summarization and Q&A
+✅ **User Experience**: Interactive news cards, expandable sections, Q&A modal
+✅ **Data Persistence**: PostgreSQL database with structured schema
+
+### PORTFOLIO IMPACT
+
+**Project Count**: Increased from 9 to 10 projects
+**Technology Showcase**: Demonstrates full-stack AI/LLM capabilities
+**#10weeks10apps**: Third project in the 10-week challenge series
+**SF Local Focus**: Continues the San Francisco-themed project series
+
+### VERIFICATION COMPLETED
+✅ No linter errors introduced
+✅ Project data structure matches existing schema
+✅ All required fields populated (title, description, tags, github, url)
+✅ Documentation updated with date and time stamp
+✅ Changes follow existing portfolio formatting and style
+
+### NEXT STEPS RECOMMENDATIONS
+1. Consider updating stats section if this project impacts metrics
+2. Test portfolio display with the new project addition
+3. Verify all links are functional (GitHub repo and live demo)
+4. Consider highlighting AI/LLM expertise in About section
+5. Monitor project performance and user engagement on live site
+
+## LIVE DEMO LINKS REMOVED
+=====================================
+
+Date: October 29, 2025
+Time: Current Session (Update 2)
+
+### CHANGES MADE
+
+#### Projects Modified
+- **SF Weekly News Digest**: Removed `url` field to hide "Live Demo →" link
+- **SF Most Wanted Parkers**: Removed `url` field to hide "Live Demo →" link
+
+#### Rationale
+- User requested removal of live demo links for both projects
+- Projects now display only "View Code →" link to GitHub repositories
+- Cleaner, more focused project cards
+
+#### Technical Details
+- Removed `url: 'https://sf-narrative.vercel.app'` from SF Weekly News Digest
+- Removed `url: 'https://sf-most-wanted-parkers-git-main-langs-projects-f4b64e04.vercel.app/'` from SF Most Wanted Parkers
+- Projects component will conditionally render based on presence of `url` field
+
+#### Files Modified
+- **data/portfolio.ts**: Removed `url` fields from two projects
+
+### VERIFICATION
+✅ No linter errors introduced
+✅ Project data structure still valid
+✅ Build completed successfully (First Load JS: 97.4 kB)
+✅ All types validated
+✅ Static pages generated without issues
+
+## BUILD CACHE ISSUE RESOLUTION
+=====================================
+
+Date: October 29, 2025
+Time: Current Session (Update 3)
+
+### ISSUE ENCOUNTERED
+**Error**: `Cannot find module './485.js'` - Next.js webpack chunk missing error
+
+### ROOT CAUSE
+- Stale build cache in `.next` directory after portfolio data changes
+- Corrupted webpack chunks causing module resolution failures
+- Common issue when making data changes and hot-reload fails to update properly
+
+### RESOLUTION STEPS
+1. Removed `.next` build directory
+2. Cleaned npm cache with `npm cache clean --force`
+3. Removed `node_modules` and `package-lock.json`
+4. Reinstalled all dependencies with `npm install`
+5. Restarted development server
+
+### TECHNICAL DETAILS
+- **Dependencies Installed**: 747 packages
+- **Installation Time**: 6 minutes
+- **Warnings**: Deprecated packages noted (non-critical)
+- **Vulnerabilities**: 0 found
+
+### VERIFICATION
+✅ Clean installation completed successfully
+✅ All 747 packages installed without errors
+✅ Development server restarted successfully
+✅ Build cache cleared and regenerated
+
+### PREVENTIVE MEASURES
+- When making data changes, consider restarting dev server
+- Clear `.next` directory if webpack errors occur
+- Use `npm run build` to verify production builds after major changes
+
+## ABOUT SECTION UPDATE - WEEK PROGRESS
+=====================================
+
+Date: October 29, 2025
+Time: Current Session (Update 4)
+
+### CHANGES MADE
+
+#### About Text Updated
+- **Updated challenge line** to reflect current progress
+- Changed from: "Currently: 10 weeks, 10 apps — building and shipping one application every week."
+- Changed to: "Currently: Week 4 of 10 — 10 weeks, 10 apps challenge: building and shipping one application every week."
+
+#### Rationale
+- User requested to show current progress in the 10-week challenge
+- Now displays "Week 4 of 10" to show progress through the challenge
+- Maintains the challenge description while adding progress tracking
+
+#### Files Modified
+- **data/portfolio.ts**: Updated `aboutText.challenge` field
+
+### VERIFICATION
+✅ No linter errors introduced
+✅ About section now displays current week progress
+✅ Challenge description maintained
+
+---
+Documentation maintained by: AI Assistant (Claude)
+Last Updated: October 29, 2025

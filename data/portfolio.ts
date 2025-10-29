@@ -62,11 +62,16 @@ export const skillCategories: SkillCategory[] = [
 
 export const projects: Project[] = [
   {
+    title: 'SF Weekly News Digest',
+    description: 'AI-powered platform that aggregates and summarizes San Francisco news from 20+ local sources. Features weekly AI-curated summaries, interactive Q&A chatbot, and automated Saturday updates via Vercel Cron.',
+    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'AI/LLM', '#10weeks10apps'],
+    github: 'https://github.com/lil-Zlang/SF-Narrative',
+  },
+  {
     title: 'SF Most Wanted Parkers',
     description: 'A Next.js app that tracks San Francisco\'s worst parking offenders using SFMTA citation data stored in Neon/Vercel Postgres.',
     tags: ['Next.js', 'PostgreSQL', 'SFMTA API', '#10weeks10apps'],
     github: 'https://github.com/lil-Zlang/sf-most-wanted-parkers',
-    url: 'https://sf-most-wanted-parkers-git-main-langs-projects-f4b64e04.vercel.app/',
   },
   {
     title: 'AI Content Detective',
@@ -144,7 +149,7 @@ export const aboutText = {
   subtitle: "I'm an engineer focused on turning real-world problems into simple, shippable products.",
   education: "At Boston University, this led me to create a semi-autonomous cycle for the visually impaired—winning the Societal Impact Award.",
   philosophy: "I bring that same user-first mindset to my professional work, solving real problems for real people.",
-  challenge: "Currently: 10 weeks, 10 apps — building and shipping one application every week.",
+  challenge: "Currently: Week 4 of 10 — 10 weeks, 10 apps challenge: building and shipping one application every week.",
 }
 
 export const contactText = {
