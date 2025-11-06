@@ -113,13 +113,13 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
               {/* Background Image */}
               {project.image && (
                 <div 
-                  className="absolute inset-0 bg-cover bg-center opacity-50 group-hover:opacity-60 transition-opacity duration-300"
+                  className="absolute inset-0 bg-cover bg-center opacity-70 group-hover:opacity-80 transition-opacity duration-300"
                   style={{ backgroundImage: `url(${project.image})` }}
                 />
               )}
               
               {/* Gradient Overlay for better text readability */}
-              <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/95" />
+              <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/75 to-white/80" />
               
               {/* Content Overlay */}
               <div className="relative p-5 min-h-[320px] flex flex-col">
