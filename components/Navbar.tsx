@@ -19,15 +19,17 @@ const Navbar = ({ onSectionClick }: NavbarProps) => {
       <div className="max-w-4xl mx-auto px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <button 
-            onClick={() => handleSectionClick('')}
-            className="text-xl font-bold text-black hover:text-gray-600 transition-colors"
-          >
-            ZG
-          </button>
+          <div className="flex-shrink-0">
+            <button 
+              onClick={() => handleSectionClick('')}
+              className="text-xl font-bold text-black hover:text-gray-600 transition-colors"
+            >
+              ZG
+            </button>
+          </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 flex-1 justify-center">
             {navItems.map((item) => (
               <button
                 key={item.name}
