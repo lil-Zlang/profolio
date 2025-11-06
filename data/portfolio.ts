@@ -68,6 +68,7 @@ export const tenWeeksTenAppsProjects: Project[] = [
     tags: ['week4', '#10weeks10apps', 'Chrome Extension', 'AI Integration', 'Prompt Management'],
     github: 'https://github.com/lil-Zlang/prompt_copilot',
     url: 'https://prompt-copilot-demo.vercel.app',
+    image: '/images/prompt-copilot-screenshot.png',
   },
   {
     title: 'SF Weekly News Digest',
@@ -75,6 +76,7 @@ export const tenWeeksTenAppsProjects: Project[] = [
     tags: ['week3', '#10weeks10apps', 'Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'AI/LLM'],
     github: 'https://github.com/lil-Zlang/SF-Narrative',
     url: 'https://sf-narrative.vercel.app',
+    image: '/images/sf-news-digest-screenshot.png',
   },
   {
     title: 'SF Most Wanted Parkers',
@@ -82,6 +84,7 @@ export const tenWeeksTenAppsProjects: Project[] = [
     tags: ['week2', '#10weeks10apps', 'Next.js', 'PostgreSQL', 'SFMTA API'],
     github: 'https://github.com/lil-Zlang/sf-most-wanted-parkers',
     url: 'https://sf-most-wanted-parkers.vercel.app',
+    image: '/images/sf-parkers-screenshot.png',
   },
   {
     title: 'ReelOrFake',
@@ -89,6 +92,7 @@ export const tenWeeksTenAppsProjects: Project[] = [
     tags: ['week1', '#10weeks10apps', 'React', 'TypeScript', 'AI/LLM', 'Audio Processing'],
     github: 'https://github.com/lil-Zlang/reel_or_fake_casino',
     url: 'https://reelorfake.lovable.app',
+    image: '/images/reelorfake-screenshot.png',
   },
 ]
 

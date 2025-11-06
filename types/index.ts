@@ -19,6 +19,7 @@ export interface Project {
   tags: string[]
   github: string
   url?: string
+  image?: string
 }
 
 export interface Stat {

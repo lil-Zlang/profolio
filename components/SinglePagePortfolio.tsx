@@ -106,31 +106,48 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           {tenWeeksTenAppsProjects.map((project) => (
-            <div key={project.title} className="border border-gray-200 p-4">
-              <h3 className="font-bold text-black mb-2">{project.title}</h3>
-              <p className="text-gray-700 text-sm mb-3 leading-relaxed">{project.description}</p>
-              <div className="mb-3">
-                <TagList tags={project.tags} />
-              </div>
-              <div className="flex gap-4">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-black hover:underline text-sm"
-                >
-                  View Code →
-                </a>
-                {project.url && (
+            <div 
+              key={project.title} 
+              className="border border-gray-200 overflow-hidden relative group rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            >
+              {/* Background Image */}
+              {project.image && (
+                <div 
+                  className="absolute inset-0 bg-cover bg-center opacity-50 group-hover:opacity-60 transition-opacity duration-300"
+                  style={{ backgroundImage: `url(${project.image})` }}
+                />
+              )}
+              
+              {/* Gradient Overlay for better text readability */}
+              <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/95" />
+              
+              {/* Content Overlay */}
+              <div className="relative p-5 min-h-[320px] flex flex-col">
+                <h3 className="font-bold text-black mb-2 text-lg">{project.title}</h3>
+                <p className="text-gray-700 text-sm mb-4 leading-relaxed flex-grow">{project.description}</p>
+                <div className="mb-4">
+                  <TagList tags={project.tags} />
+                </div>
+                <div className="flex gap-4 mt-auto pt-2 border-t border-gray-200">
                   <a
-                    href={project.url}
+                    href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline text-sm"
+                    className="text-black hover:text-gray-700 hover:underline text-sm font-medium transition-colors"
                   >
-                    Live Demo →
+                    View Code →
                   </a>
-                )}
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-700 hover:underline text-sm font-medium transition-colors"
+                    >
+                      Live Demo →
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}

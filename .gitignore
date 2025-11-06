@@ -42,3 +42,6 @@ next-env.d.ts
 *.swo
 *~
 
+# Documentation
+dev_documentation.txt
+CLAUDE.md
