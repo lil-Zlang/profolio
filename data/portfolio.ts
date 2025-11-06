@@ -21,8 +21,8 @@ export const experiences: Experience[] = [
     url: 'https://theblindmachinist.com/about/',
     image: '/images/BUece.png',
     achievements: [
-      'Designed semi-autonomous cycle for visually impaired users → 92% navigation accuracy, COE Societal Impact Award winner',
-      'Developed real-time navigation system in collaboration with Dan Parker, world\'s fastest blind driver',
+      'Led technical discovery and stakeholder collaboration for autonomous navigation system',
+      'Architected multi-sensor solution with Google Maps API integration',
     ],
   },
   {
