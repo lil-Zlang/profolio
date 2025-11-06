@@ -2,7 +2,7 @@
 
 import { useState, forwardRef, useImperativeHandle } from 'react'
 import { SinglePagePortfolioRef } from '@/types'
-import { experiences, skillCategories, projects, stats, aboutText, contactText } from '@/data/portfolio'
+import { experiences, skillCategories, projects, tenWeeksTenAppsProjects, stats, aboutText, contactText } from '@/data/portfolio'
 import ExpandableSection from './ui/ExpandableSection'
 import StatsGrid from './ui/StatsGrid'
 import TagList from './ui/TagList'
@@ -45,28 +45,106 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
       <ExpandableSection
         id="experience"
         title="Experience"
-        subtitle="EasyBee AI • Cadence • Terrier Motorsports • HCI Lab"
+        subtitle="EasyBee AI • BU ECE • Cadence • Terrier Motorsports • HCI Lab"
         isExpanded={expandedSection === 'experience'}
         onToggle={toggleSection}
       >
         <div className="space-y-8">
           {experiences.map((exp) => (
-            <div key={exp.company} className="border-l-2 border-gray-200 pl-6">
-              {exp.url ? (
-                <a
-                  href={exp.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-lg font-bold text-black hover:underline"
-                >
-                  {exp.company}
-                </a>
-              ) : (
-                <h3 className="text-lg font-bold text-black">{exp.company}</h3>
+            <div key={exp.company} className="border-l-2 border-gray-200 pl-6 flex gap-4">
+              {/* Company Logo/Image */}
+              {exp.image && (
+                <div className="flex-shrink-0 w-20 h-20 mt-1">
+                  <img 
+                    src={exp.image} 
+                    alt={`${exp.company} logo`}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               )}
-              <p className="text-gray-700 font-medium">{exp.role}</p>
-              <p className="text-sm text-gray-600 mb-3">{exp.period} • {exp.location}</p>
-              <BulletList items={exp.achievements} />
+              
+              {/* Content */}
+              <div className="flex-grow">
+                {exp.url ? (
+                  <a
+                    href={exp.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-bold text-black hover:underline"
+                  >
+                    {exp.company}
+                  </a>
+                ) : (
+                  <h3 className="text-lg font-bold text-black">{exp.company}</h3>
+                )}
+                <p className="text-gray-700 font-medium">{exp.role}</p>
+                <p className="text-sm text-gray-600 mb-3">{exp.period} • {exp.location}</p>
+                <BulletList items={exp.achievements} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </ExpandableSection>
+
+      {/* 10 Weeks 10 Apps Section */}
+      <ExpandableSection
+        id="10weeks10apps"
+        title="10 Weeks 10 Apps"
+        subtitle="ReelOrFake • SF Most Wanted Parkers • SF Weekly News Digest • Prompt CoPilot"
+        isExpanded={expandedSection === '10weeks10apps'}
+        onToggle={toggleSection}
+      >
+        <div className="space-y-4 mb-6">
+          <p className="text-gray-700 text-sm leading-relaxed">
+            A challenge to build and ship one application every week for 10 weeks. Each project demonstrates rapid iteration, 
+            full-stack development capabilities, and real-world problem solving.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-6">
+          {tenWeeksTenAppsProjects.map((project) => (
+            <div 
+              key={project.title} 
+              className="border border-gray-200 overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow bg-white"
+            >
+              {/* Screenshot Image - Prominent Display */}
+              {project.image && (
+                <div className="w-full h-48 bg-gray-100 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={`${project.title} screenshot`}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              )}
+              
+              {/* Content */}
+              <div className="p-5">
+                <h3 className="font-bold text-black mb-2 text-lg">{project.title}</h3>
+                <p className="text-gray-700 text-sm mb-4 leading-relaxed">{project.description}</p>
+                <div className="mb-4">
+                  <TagList tags={project.tags} />
+                </div>
+                <div className="flex gap-4 pt-2 border-t border-gray-200">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-black hover:text-gray-700 hover:underline text-sm font-medium transition-colors"
+                  >
+                    View Code →
+                  </a>
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-700 hover:underline text-sm font-medium transition-colors"
+                    >
+                      Live Demo →
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
           ))}
         </div>

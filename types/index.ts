@@ -6,6 +6,7 @@ export interface Experience {
   period: string
   achievements: string[]
   url?: string
+  image?: string
 }
 
 export interface SkillCategory {
@@ -19,6 +20,7 @@ export interface Project {
   tags: string[]
   github: string
   url?: string
+  image?: string
 }
 
 export interface Stat {
