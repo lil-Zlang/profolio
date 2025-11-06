@@ -108,27 +108,27 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
           {tenWeeksTenAppsProjects.map((project) => (
             <div 
               key={project.title} 
-              className="border border-gray-200 overflow-hidden relative group rounded-lg shadow-sm hover:shadow-md transition-shadow"
+              className="border border-gray-200 overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow bg-white"
             >
-              {/* Background Image */}
+              {/* Screenshot Image - Prominent Display */}
               {project.image && (
-                <div 
-                  className="absolute inset-0 bg-cover bg-center opacity-70 group-hover:opacity-80 transition-opacity duration-300"
-                  style={{ backgroundImage: `url(${project.image})` }}
-                />
+                <div className="w-full h-48 bg-gray-100 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={`${project.title} screenshot`}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
               )}
               
-              {/* Gradient Overlay for better text readability */}
-              <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/75 to-white/80" />
-              
-              {/* Content Overlay */}
-              <div className="relative p-5 min-h-[320px] flex flex-col">
+              {/* Content */}
+              <div className="p-5">
                 <h3 className="font-bold text-black mb-2 text-lg">{project.title}</h3>
-                <p className="text-gray-700 text-sm mb-4 leading-relaxed flex-grow">{project.description}</p>
+                <p className="text-gray-700 text-sm mb-4 leading-relaxed">{project.description}</p>
                 <div className="mb-4">
                   <TagList tags={project.tags} />
                 </div>
-                <div className="flex gap-4 mt-auto pt-2 border-t border-gray-200">
+                <div className="flex gap-4 pt-2 border-t border-gray-200">
                   <a
                     href={project.github}
                     target="_blank"
