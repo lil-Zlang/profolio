@@ -2,7 +2,7 @@
 
 import { useState, forwardRef, useImperativeHandle } from 'react'
 import { SinglePagePortfolioRef } from '@/types'
-import { experiences, skillCategories, projects, stats, aboutText, contactText } from '@/data/portfolio'
+import { experiences, skillCategories, projects, tenWeeksTenAppsProjects, stats, aboutText, contactText } from '@/data/portfolio'
 import ExpandableSection from './ui/ExpandableSection'
 import StatsGrid from './ui/StatsGrid'
 import TagList from './ui/TagList'
@@ -85,6 +85,53 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
             <div key={category.title} className="border border-gray-200 p-4">
               <h3 className="font-bold text-black mb-3">{category.title}</h3>
               <BulletList items={category.skills} />
+            </div>
+          ))}
+        </div>
+      </ExpandableSection>
+
+      {/* 10 Weeks 10 Apps Section */}
+      <ExpandableSection
+        id="10weeks10apps"
+        title="10 Weeks 10 Apps"
+        subtitle="ReelOrFake • SF Most Wanted Parkers • SF Weekly News Digest • Prompt CoPilot"
+        isExpanded={expandedSection === '10weeks10apps'}
+        onToggle={toggleSection}
+      >
+        <div className="space-y-4 mb-6">
+          <p className="text-gray-700 text-sm leading-relaxed">
+            A challenge to build and ship one application every week for 10 weeks. Each project demonstrates rapid iteration, 
+            full-stack development capabilities, and real-world problem solving.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-6">
+          {tenWeeksTenAppsProjects.map((project) => (
+            <div key={project.title} className="border border-gray-200 p-4">
+              <h3 className="font-bold text-black mb-2">{project.title}</h3>
+              <p className="text-gray-700 text-sm mb-3 leading-relaxed">{project.description}</p>
+              <div className="mb-3">
+                <TagList tags={project.tags} />
+              </div>
+              <div className="flex gap-4">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-black hover:underline text-sm"
+                >
+                  View Code →
+                </a>
+                {project.url && (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    Live Demo →
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>
