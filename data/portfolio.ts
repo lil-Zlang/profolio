@@ -7,6 +7,7 @@ export const experiences: Experience[] = [
     location: 'San Francisco, CA',
     period: '2025 - Present',
     url: 'https://easybee.ai/',
+    image: '/images/easybeeAI.png',
     achievements: [
       'Architected multi-agent LLM system → 40% increase in customer conversion',
       'Delivered zero-downtime platform for rapidly expanding user base',
@@ -18,6 +19,7 @@ export const experiences: Experience[] = [
     location: 'Austin, TX',
     period: 'Summer 2024',
     url: 'https://www.cadence.com/en_US/home.html',
+    image: '/images/cadence.png',
     achievements: [
       'Engineered U-Net thermal model → 5% improvement in data center efficiency',
       'Built 3D visualization tool → 15% faster hardware validation',
@@ -28,6 +30,7 @@ export const experiences: Experience[] = [
     role: 'GLV Team Lead',
     location: 'Boston, MA',
     period: '2023 - 2024',
+    image: '/images/terrierMotorsport.png',
     achievements: [
       'Designed real-time control software in C++ for embedded Linux → 40% reduction in system input latency',
       'Engineered low-latency communication protocols for critical vehicle subsystems',
@@ -38,6 +41,7 @@ export const experiences: Experience[] = [
     role: 'Research Assistant',
     location: 'University of Sydney, Sydney, AUS',
     period: 'Spring 2023',
+    image: '/images/UniversityofSydney.png',
     achievements: [
       'Acted as Voice of Customer by analyzing user behavior patterns on SaaS platform',
       'Synthesized findings into actionable product insights → 15% boost in user engagement',

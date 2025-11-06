@@ -51,22 +51,36 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
       >
         <div className="space-y-8">
           {experiences.map((exp) => (
-            <div key={exp.company} className="border-l-2 border-gray-200 pl-6">
-              {exp.url ? (
-                <a
-                  href={exp.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-lg font-bold text-black hover:underline"
-                >
-                  {exp.company}
-                </a>
-              ) : (
-                <h3 className="text-lg font-bold text-black">{exp.company}</h3>
+            <div key={exp.company} className="border-l-2 border-gray-200 pl-6 flex gap-4">
+              {/* Company Logo/Image */}
+              {exp.image && (
+                <div className="flex-shrink-0 w-20 h-20 mt-1">
+                  <img 
+                    src={exp.image} 
+                    alt={`${exp.company} logo`}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               )}
-              <p className="text-gray-700 font-medium">{exp.role}</p>
-              <p className="text-sm text-gray-600 mb-3">{exp.period} • {exp.location}</p>
-              <BulletList items={exp.achievements} />
+              
+              {/* Content */}
+              <div className="flex-grow">
+                {exp.url ? (
+                  <a
+                    href={exp.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-bold text-black hover:underline"
+                  >
+                    {exp.company}
+                  </a>
+                ) : (
+                  <h3 className="text-lg font-bold text-black">{exp.company}</h3>
+                )}
+                <p className="text-gray-700 font-medium">{exp.role}</p>
+                <p className="text-sm text-gray-600 mb-3">{exp.period} • {exp.location}</p>
+                <BulletList items={exp.achievements} />
+              </div>
             </div>
           ))}
         </div>
