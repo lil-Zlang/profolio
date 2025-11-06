@@ -158,8 +158,8 @@ export const stats: Stat[] = [
 export const navItems: NavItem[] = [
   { name: 'About', section: 'about' },
   { name: 'Experience', section: 'experience' },
-  { name: 'Skills', section: 'skills' },
   { name: '10 Weeks 10 Apps', section: '10weeks10apps' },
+  { name: 'Skills', section: 'skills' },
   { name: 'Projects', section: 'projects' },
   { name: 'Contact', section: 'contact' },
 ]

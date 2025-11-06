@@ -72,24 +72,6 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
         </div>
       </ExpandableSection>
 
-      {/* Skills Section */}
-      <ExpandableSection
-        id="skills"
-        title="Skills"
-        subtitle="Python • C++ • ROS2 • AWS • Docker • LangGraph"
-        isExpanded={expandedSection === 'skills'}
-        onToggle={toggleSection}
-      >
-        <div className="grid md:grid-cols-3 gap-6">
-          {skillCategories.map((category) => (
-            <div key={category.title} className="border border-gray-200 p-4">
-              <h3 className="font-bold text-black mb-3">{category.title}</h3>
-              <BulletList items={category.skills} />
-            </div>
-          ))}
-        </div>
-      </ExpandableSection>
-
       {/* 10 Weeks 10 Apps Section */}
       <ExpandableSection
         id="10weeks10apps"
@@ -149,6 +131,24 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
                   )}
                 </div>
               </div>
+            </div>
+          ))}
+        </div>
+      </ExpandableSection>
+
+      {/* Skills Section */}
+      <ExpandableSection
+        id="skills"
+        title="Skills"
+        subtitle="Python • C++ • ROS2 • AWS • Docker • LangGraph"
+        isExpanded={expandedSection === 'skills'}
+        onToggle={toggleSection}
+      >
+        <div className="grid md:grid-cols-3 gap-6">
+          {skillCategories.map((category) => (
+            <div key={category.title} className="border border-gray-200 p-4">
+              <h3 className="font-bold text-black mb-3">{category.title}</h3>
+              <BulletList items={category.skills} />
             </div>
           ))}
         </div>
