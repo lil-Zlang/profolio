@@ -60,21 +60,14 @@ export const skillCategories: SkillCategory[] = [
   },
 ]
 
-// 10 Weeks 10 Apps Challenge Projects
+// 10 Weeks 10 Apps Challenge Projects (Newest First)
 export const tenWeeksTenAppsProjects: Project[] = [
   {
-    title: 'ReelOrFake',
-    description: 'An application that challenges users to distinguish between original audio and AI-generated clones. Interactive game-based interface for testing audio authenticity detection.',
-    tags: ['React', 'TypeScript', 'AI/LLM', 'Audio Processing', '#10weeks10apps', 'week1'],
-    github: 'https://github.com/lil-Zlang/reel_or_fake_casino',
-    url: 'https://reelorfake.lovable.app',
-  },
-  {
-    title: 'SF Most Wanted Parkers',
-    description: 'A Next.js app that tracks San Francisco\'s worst parking offenders using SFMTA citation data stored in Neon/Vercel Postgres.',
-    tags: ['Next.js', 'PostgreSQL', 'SFMTA API', '#10weeks10apps', 'week2'],
-    github: 'https://github.com/lil-Zlang/sf-most-wanted-parkers',
-    url: 'https://sf-most-wanted-parkers.vercel.app',
+    title: 'Prompt CoPilot',
+    description: 'A Chrome extension designed to manage and utilize prompts with AI integration, enhancing user interaction with AI models. Features prompt templates, quick access, and seamless AI workflow integration.',
+    tags: ['Chrome Extension', 'AI Integration', 'Prompt Management', '#10weeks10apps', 'week4'],
+    github: 'https://github.com/lil-Zlang/prompt_copilot',
+    url: 'https://prompt-copilot-demo.vercel.app',
   },
   {
     title: 'SF Weekly News Digest',
@@ -84,11 +77,18 @@ export const tenWeeksTenAppsProjects: Project[] = [
     url: 'https://sf-narrative.vercel.app',
   },
   {
-    title: 'Prompt CoPilot',
-    description: 'A Chrome extension designed to manage and utilize prompts with AI integration, enhancing user interaction with AI models. Features prompt templates, quick access, and seamless AI workflow integration.',
-    tags: ['Chrome Extension', 'AI Integration', 'Prompt Management', '#10weeks10apps', 'week4'],
-    github: 'https://github.com/lil-Zlang/prompt_copilot',
-    url: 'https://prompt-copilot-demo.vercel.app',
+    title: 'SF Most Wanted Parkers',
+    description: 'A Next.js app that tracks San Francisco\'s worst parking offenders using SFMTA citation data stored in Neon/Vercel Postgres.',
+    tags: ['Next.js', 'PostgreSQL', 'SFMTA API', '#10weeks10apps', 'week2'],
+    github: 'https://github.com/lil-Zlang/sf-most-wanted-parkers',
+    url: 'https://sf-most-wanted-parkers.vercel.app',
+  },
+  {
+    title: 'ReelOrFake',
+    description: 'An application that challenges users to distinguish between original audio and AI-generated clones. Interactive game-based interface for testing audio authenticity detection.',
+    tags: ['React', 'TypeScript', 'AI/LLM', 'Audio Processing', '#10weeks10apps', 'week1'],
+    github: 'https://github.com/lil-Zlang/reel_or_fake_casino',
+    url: 'https://reelorfake.lovable.app',
   },
 ]
 
