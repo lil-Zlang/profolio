@@ -62,22 +62,29 @@ export const skillCategories: SkillCategory[] = [
 
 export const projects: Project[] = [
   {
-    title: 'SF Weekly News Digest',
-    description: 'AI-powered platform that aggregates and summarizes San Francisco news from 20+ local sources. Features weekly AI-curated summaries, interactive Q&A chatbot, and automated Saturday updates via Vercel Cron.',
-    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'AI/LLM', '#10weeks10apps'],
-    github: 'https://github.com/lil-Zlang/SF-Narrative',
-  },
-  {
-    title: 'SF Most Wanted Parkers',
-    description: 'A Next.js app that tracks San Francisco\'s worst parking offenders using SFMTA citation data stored in Neon/Vercel Postgres.',
-    tags: ['Next.js', 'PostgreSQL', 'SFMTA API', '#10weeks10apps'],
-    github: 'https://github.com/lil-Zlang/sf-most-wanted-parkers',
+    title: 'Prompt CoPilot',
+    description: 'A Chrome extension designed to manage and utilize prompts with AI integration, enhancing user interaction with AI models. Features prompt templates, quick access, and seamless AI workflow integration.',
+    tags: ['Chrome Extension', 'AI Integration', 'Prompt Management', '#10weeks10apps', 'week4'],
+    github: 'https://github.com/lil-Zlang/prompt_copilot',
+    url: 'https://prompt-copilot-demo.vercel.app/',
   },
   {
     title: 'AI Content Detective',
     description: 'React-TypeScript web app that detects AI-generated content in real time',
-    tags: ['React', 'TypeScript', 'Supabase', '#10weeks10apps'],
+    tags: ['React', 'TypeScript', 'Supabase', '#10weeks10apps', 'week3'],
     github: 'https://github.com/lil-Zlang/ai-content-detective',
+  },
+  {
+    title: 'SF Most Wanted Parkers',
+    description: 'A Next.js app that tracks San Francisco\'s worst parking offenders using SFMTA citation data stored in Neon/Vercel Postgres.',
+    tags: ['Next.js', 'PostgreSQL', 'SFMTA API', '#10weeks10apps', 'week2'],
+    github: 'https://github.com/lil-Zlang/sf-most-wanted-parkers',
+  },
+  {
+    title: 'SF Weekly News Digest',
+    description: 'AI-powered platform that aggregates and summarizes San Francisco news from 20+ local sources. Features weekly AI-curated summaries, interactive Q&A chatbot, and automated Saturday updates via Vercel Cron.',
+    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'AI/LLM', '#10weeks10apps', 'week1'],
+    github: 'https://github.com/lil-Zlang/SF-Narrative',
   },
   {
     title: 'Semi-Autonomous Cycle',
