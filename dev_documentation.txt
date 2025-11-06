@@ -498,6 +498,38 @@ The Prompt CoPilot project includes:
 4. Monitor project performance and user engagement on live site
 5. Prepare for Week 5 project addition when ready
 
+## LIVE DEMO URLS ADDED TO 10WEEKS10APPS PROJECTS
+=====================================
+
+Date: November 05, 2025
+Time: 17:37:18
+
+### CHANGES MADE
+
+#### Live Demo URLs Added
+Added live demo URLs to all 10weeks10apps projects:
+
+1. **Prompt CoPilot (Week 4)**
+   - URL: https://prompt-copilot-demo.vercel.app
+   - Already had URL, standardized format (removed trailing slash)
+
+2. **SF Most Wanted Parkers (Week 2)**
+   - URL: https://sf-most-wanted-parkers.vercel.app
+   - Added live demo link
+
+3. **SF Weekly News Digest (Week 1)**
+   - URL: https://sf-narrative.vercel.app
+   - Added live demo link
+
+### FILES MODIFIED
+- **data/portfolio.ts**: Added `url` fields to SF Most Wanted Parkers and SF Weekly News Digest projects
+
+### VERIFICATION
+✅ No linter errors introduced
+✅ All URLs properly formatted with https:// protocol
+✅ URLs standardized (no trailing slashes)
+✅ Project data structure validated
+
 ---
 Documentation maintained by: AI Assistant (Claude)
 Last Updated: November 05, 2025

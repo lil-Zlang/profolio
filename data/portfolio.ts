@@ -66,7 +66,7 @@ export const projects: Project[] = [
     description: 'A Chrome extension designed to manage and utilize prompts with AI integration, enhancing user interaction with AI models. Features prompt templates, quick access, and seamless AI workflow integration.',
     tags: ['Chrome Extension', 'AI Integration', 'Prompt Management', '#10weeks10apps', 'week4'],
     github: 'https://github.com/lil-Zlang/prompt_copilot',
-    url: 'https://prompt-copilot-demo.vercel.app/',
+    url: 'https://prompt-copilot-demo.vercel.app',
   },
   {
     title: 'AI Content Detective',
@@ -79,12 +79,14 @@ export const projects: Project[] = [
     description: 'A Next.js app that tracks San Francisco\'s worst parking offenders using SFMTA citation data stored in Neon/Vercel Postgres.',
     tags: ['Next.js', 'PostgreSQL', 'SFMTA API', '#10weeks10apps', 'week2'],
     github: 'https://github.com/lil-Zlang/sf-most-wanted-parkers',
+    url: 'https://sf-most-wanted-parkers.vercel.app',
   },
   {
     title: 'SF Weekly News Digest',
     description: 'AI-powered platform that aggregates and summarizes San Francisco news from 20+ local sources. Features weekly AI-curated summaries, interactive Q&A chatbot, and automated Saturday updates via Vercel Cron.',
     tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'AI/LLM', '#10weeks10apps', 'week1'],
     github: 'https://github.com/lil-Zlang/SF-Narrative',
+    url: 'https://sf-narrative.vercel.app',
   },
   {
     title: 'Semi-Autonomous Cycle',
