@@ -45,7 +45,7 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
       <ExpandableSection
         id="experience"
         title="Experience"
-        subtitle="EasyBee AI • Cadence • Terrier Motorsports • HCI Lab"
+        subtitle="EasyBee AI • BU ECE • Cadence • Terrier Motorsports • HCI Lab"
         isExpanded={expandedSection === 'experience'}
         onToggle={toggleSection}
       >

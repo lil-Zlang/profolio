@@ -14,6 +14,18 @@ export const experiences: Experience[] = [
     ],
   },
   {
+    company: 'BU ECE Senior Design',
+    role: 'Software and Embedded Engineer',
+    location: 'Boston, MA • Client: Dan Parker',
+    period: 'Sep 2024 - May 2025',
+    url: 'https://theblindmachinist.com/about/',
+    image: '/images/BUece.png',
+    achievements: [
+      'Designed semi-autonomous cycle for visually impaired users → 92% navigation accuracy, COE Societal Impact Award winner',
+      'Developed real-time navigation system in collaboration with Dan Parker, world\'s fastest blind driver',
+    ],
+  },
+  {
     company: 'Cadence Design Systems',
     role: 'Machine Learning Engineering Intern',
     location: 'Austin, TX',
