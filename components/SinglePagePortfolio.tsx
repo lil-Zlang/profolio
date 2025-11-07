@@ -90,7 +90,7 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
       <ExpandableSection
         id="10weeks10apps"
         title="10 Weeks 10 Apps"
-        subtitle="ReelOrFake • SF Most Wanted Parkers • SF Weekly News Digest • Prompt CoPilot"
+        subtitle="MenuCopilot • Prompt CoPilot • SF Weekly News Digest • SF Most Wanted Parkers • ReelOrFake"
         isExpanded={expandedSection === '10weeks10apps'}
         onToggle={toggleSection}
       >

@@ -79,6 +79,14 @@ export const skillCategories: SkillCategory[] = [
 // 10 Weeks 10 Apps Challenge Projects (Newest First)
 export const tenWeeksTenAppsProjects: Project[] = [
   {
+    title: 'MenuCopilot',
+    description: 'Take a photo of a restaurant menu and get personalized food recommendations powered by AI. Features image analysis, preference questions, and intelligent dish suggestions tailored to your tastes.',
+    tags: ['week5', '#10weeks10apps', 'Next.js', 'TypeScript', 'AI/LLM', 'Image Processing', 'OpenAI Vision'],
+    github: 'https://github.com/lil-Zlang/MenuCopilot',
+    url: 'https://menu-copilot.vercel.app',
+    image: '/images/menucopilot-screenshot.png',
+  },
+  {
     title: 'Prompt CoPilot',
     description: 'A Chrome extension designed to manage and utilize prompts with AI integration, enhancing user interaction with AI models. Features prompt templates, quick access, and seamless AI workflow integration.',
     tags: ['week4', '#10weeks10apps', 'Chrome Extension', 'AI Integration', 'Prompt Management'],
@@ -191,7 +199,7 @@ export const aboutText = {
   subtitle: "I'm an engineer focused on turning real-world problems into simple, shippable products.",
   education: "At Boston University, this led me to create a semi-autonomous cycle for the visually impaired—winning the Societal Impact Award.",
   philosophy: "I bring that same user-first mindset to my professional work, solving real problems for real people.",
-  challenge: "Currently: Week 4 of 10 — 10 weeks, 10 apps challenge: building and shipping one application every week.",
+  challenge: "Currently: Week 5 of 10 — 10 weeks, 10 apps challenge: building and shipping one application every week.",
 }
 
 export const contactText = {
