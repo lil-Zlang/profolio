@@ -79,6 +79,15 @@ export const skillCategories: SkillCategory[] = [
 // 10 Weeks 10 Apps Challenge Projects (Newest First)
 export const tenWeeksTenAppsProjects: Project[] = [
   {
+    title: 'WeRead',
+    description: 'AI-powered Chrome extension that reduces article reading time by 12 min on average. Full-stack product with Chrome Extension (MV3), 7 serverless API endpoints, Stripe subscriptions, and Next.js marketing site. Features parallel AI processing pipeline (4 concurrent LLM calls in 3-5s), Google OAuth, and Notion-inspired UI with dual reading modes.',
+    tags: ['week6', '#10weeks10apps', 'Chrome Extension', 'Next.js', 'TypeScript', 'Node.js', 'Vercel', 'AI/LLM', 'Stripe'],
+    github: 'https://github.com/lil-Zlang',
+    url: 'https://www.wereadtoday.com/',
+    chromeStoreUrl: 'https://chromewebstore.google.com/detail/weread-ai-reading-assista/jelfmobhiidblbloeddcmkghmfmlkdmg',
+    image: '/images/weRead.png',
+  },
+  {
     title: 'MenuCopilot',
     description: 'Take a photo of a restaurant menu and get personalized food recommendations powered by AI. Features image analysis, preference questions, and intelligent dish suggestions tailored to your tastes.',
     tags: ['week5', '#10weeks10apps', 'Next.js', 'TypeScript', 'AI/LLM', 'Image Processing', 'OpenAI Vision'],
@@ -199,7 +208,7 @@ export const aboutText = {
   subtitle: "I'm an engineer focused on turning real-world problems into simple, shippable products.",
   education: "At Boston University, this led me to create a semi-autonomous cycle for the visually impaired—winning the Societal Impact Award.",
   philosophy: "I bring that same user-first mindset to my professional work, solving real problems for real people.",
-  challenge: "Currently: Week 5 of 10 — 10 weeks, 10 apps challenge: building and shipping one application every week.",
+  challenge: "Currently: Week 6 of 10 — 10 weeks, 10 apps challenge: building and shipping one application every week.",
 }
 
 export const contactText = {

@@ -21,6 +21,7 @@ export interface Project {
   github: string
   url?: string
   image?: string
+  chromeStoreUrl?: string
 }
 
 export interface Stat {

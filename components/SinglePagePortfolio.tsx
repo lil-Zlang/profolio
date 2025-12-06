@@ -90,7 +90,7 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
       <ExpandableSection
         id="10weeks10apps"
         title="10 Weeks 10 Apps"
-        subtitle="MenuCopilot • Prompt CoPilot • SF Weekly News Digest • SF Most Wanted Parkers • ReelOrFake"
+        subtitle="WeRead • MenuCopilot • Prompt CoPilot • SF Weekly News Digest • SF Most Wanted Parkers • ReelOrFake"
         isExpanded={expandedSection === '10weeks10apps'}
         onToggle={toggleSection}
       >
@@ -124,15 +124,7 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
                 <div className="mb-4">
                   <TagList tags={project.tags} />
                 </div>
-                <div className="flex gap-4 pt-2 border-t border-gray-200">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-black hover:text-gray-700 hover:underline text-sm font-medium transition-colors"
-                  >
-                    View Code →
-                  </a>
+                <div className="flex flex-wrap gap-4 pt-2 border-t border-gray-200">
                   {project.url && (
                     <a
                       href={project.url}
@@ -141,6 +133,16 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
                       className="text-blue-600 hover:text-blue-700 hover:underline text-sm font-medium transition-colors"
                     >
                       Live Demo →
+                    </a>
+                  )}
+                  {project.chromeStoreUrl && (
+                    <a
+                      href={project.chromeStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-600 hover:text-green-700 hover:underline text-sm font-medium transition-colors"
+                    >
+                      Chrome Store →
                     </a>
                   )}
                 </div>
