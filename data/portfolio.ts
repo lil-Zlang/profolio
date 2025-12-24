@@ -3,14 +3,15 @@ import { Experience, SkillCategory, Project, Stat, NavItem, SocialLink } from '@
 export const experiences: Experience[] = [
   {
     company: 'EasyBee AI',
-    role: 'Full-Stack & LLM Engineer',
+    role: 'AI Engineer',
     location: 'San Francisco, CA',
     period: '2025 - Present',
     url: 'https://easybee.ai/',
     image: '/images/easybeeAI.png',
     achievements: [
-      'Architected multi-agent LLM system → 40% increase in customer conversion',
-      'Delivered zero-downtime platform for rapidly expanding user base',
+      'Built multi-agent LLM system with LangGraph → 40% increase in customer conversion',
+      'Created reusable CI/CD pipeline templates with GitHub Actions → 3x faster deployments to production',
+      'Configured SSL/TLS with Certbot and Nginx reverse proxy for zero-downtime HTTPS deployments',
     ],
   },
   {

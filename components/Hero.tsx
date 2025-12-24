@@ -2,53 +2,31 @@ import Image from 'next/image'
 
 const Hero = () => {
   return (
-    <section className="py-12 bg-white border-b border-gray-200">
+    <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-4xl mx-auto px-8 text-center">
-        <div className="mb-6 flex justify-center">
-          <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-black bg-white">
+        <div className="mb-8 flex justify-center">
+          <div className="w-48 h-48 rounded-[2.5rem] overflow-hidden shadow-xl shadow-gray-200/60 ring-1 ring-gray-100">
             <Image
-              src="/profile.png"
+              src="/profile.jpeg"
               alt="Zhilang Gui"
-              width={128}
-              height={128}
-              className="object-cover"
+              width={192}
+              height={192}
+              className="object-cover w-full h-full"
               priority
             />
           </div>
         </div>
 
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-black">
+        <h1 className="text-3xl md:text-4xl font-semibold mb-4 text-gray-900 tracking-tight">
           Zhilang Gui
         </h1>
 
-        <p className="text-lg md:text-xl mb-4 text-gray-700">
-          Solution Engineer
-        </p>
-
-        <p className="text-base mb-8 text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-500 max-w-xl mx-auto leading-relaxed">
           I build intelligent systems that bridge complex algorithms with intuitive, real-world solutions.
         </p>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="https://github.com/lil-Zlang"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-2 bg-black text-white border-2 border-black hover:bg-white hover:text-black transition-colors"
-          >
-            GitHub
-          </a>
-          <a
-            href="mailto:lang.gui.bu@gmail.com"
-            className="px-6 py-2 bg-white text-black border-2 border-black hover:bg-black hover:text-white transition-colors"
-          >
-            Contact
-          </a>
-        </div>
       </div>
     </section>
   )
 }
 
 export default Hero
-

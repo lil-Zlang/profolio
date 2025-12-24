@@ -1,9 +1,3 @@
-# Lang's Portfolio
-## check it here: https://lang-portfolio.vercel.app/
+# Zhilang Gui — Portfolio
 
-## Tech Stack
-
-- **Next.js 14** - React framework
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Styling
-- **React 18** - UI library
+**🌐 Live:** [www.buildwithlang.com](https://www.buildwithlang.com)

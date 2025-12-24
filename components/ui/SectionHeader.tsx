@@ -4,14 +4,14 @@ const SectionHeader = ({ title, subtitle, isExpanded, onToggle }: SectionHeaderP
   return (
     <button
       onClick={onToggle}
-      className="w-full p-6 text-left hover:bg-gray-50 transition-colors flex justify-between items-center"
+      className="w-full p-6 text-left hover:bg-gray-50/50 transition-all duration-200 flex justify-between items-center group"
     >
       <div>
-        <h2 className="text-xl font-bold text-black">{title}</h2>
-        <p className="text-gray-600 mt-1">{subtitle}</p>
+        <h2 className="text-xl font-semibold text-gray-900 group-hover:text-gray-700 transition-colors">{title}</h2>
+        <p className="text-gray-500 mt-1">{subtitle}</p>
       </div>
-      <span className="text-2xl text-gray-400">
-        {isExpanded ? '−' : '+'}
+      <span className={`text-xl text-gray-300 group-hover:text-gray-400 transition-all duration-300 ${isExpanded ? 'rotate-45' : 'rotate-0'}`}>
+        +
       </span>
     </button>
   )
