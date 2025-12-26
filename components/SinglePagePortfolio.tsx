@@ -2,17 +2,26 @@
 
 import { useState, forwardRef, useImperativeHandle } from 'react'
 import { SinglePagePortfolioRef } from '@/types'
-import { experiences, skillCategories, projects, tenWeeksTenAppsProjects, stats, aboutText, contactText } from '@/data/portfolio'
+import { experiences, skillCategories, projects, tenWeeksTenAppsProjects, contactText } from '@/data/portfolio'
 import ExpandableSection from './ui/ExpandableSection'
-import StatsGrid from './ui/StatsGrid'
 import TagList from './ui/TagList'
 import BulletList from './ui/BulletList'
 
 const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
-  const [expandedSection, setExpandedSection] = useState<string | null>(null)
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(
+    new Set(['experience', '10weeks10apps', 'skills', 'projects', 'contact'])
+  )
 
   const toggleSection = (section: string) => {
-    setExpandedSection(expandedSection === section ? null : section)
+    setExpandedSections(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(section)) {
+        newSet.delete(section)
+      } else {
+        newSet.add(section)
+      }
+      return newSet
+    })
   }
 
   useImperativeHandle(ref, () => ({
@@ -22,31 +31,12 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
   return (
     <div className="max-w-4xl mx-auto px-8 py-8 space-y-8">
 
-      {/* About Section */}
-      <ExpandableSection
-        id="about"
-        title="About Me"
-        subtitle="Problem → Code → Solution."
-        isExpanded={expandedSection === 'about'}
-        onToggle={toggleSection}
-      >
-        <div className="space-y-4 text-gray-700 leading-relaxed">
-          <p className="text-lg font-medium text-black">{aboutText.intro}</p>
-          <p>{aboutText.subtitle}</p>
-          <p>{aboutText.education}</p>
-          <p>{aboutText.philosophy}</p>
-          <p className="text-sm font-medium text-black border-l-2 border-black pl-3">{aboutText.challenge}</p>
-        </div>
-
-        <StatsGrid stats={stats} />
-      </ExpandableSection>
-
       {/* Experience Section */}
       <ExpandableSection
         id="experience"
         title="Experience"
         subtitle="EasyBee AI • BU ECE • Cadence • Terrier Motorsports • HCI Lab"
-        isExpanded={expandedSection === 'experience'}
+        isExpanded={expandedSections.has('experience')}
         onToggle={toggleSection}
       >
         <div className="space-y-8">
@@ -91,7 +81,7 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
         id="10weeks10apps"
         title="10 Weeks 10 Apps"
         subtitle="WeRead • MenuCopilot • Prompt CoPilot • SF Weekly News Digest • SF Most Wanted Parkers • ReelOrFake"
-        isExpanded={expandedSection === '10weeks10apps'}
+        isExpanded={expandedSections.has('10weeks10apps')}
         onToggle={toggleSection}
       >
         <div className="space-y-4 mb-6">
@@ -157,7 +147,7 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
         id="skills"
         title="Skills"
         subtitle="Python • C++ • ROS2 • AWS • Docker • LangGraph"
-        isExpanded={expandedSection === 'skills'}
+        isExpanded={expandedSections.has('skills')}
         onToggle={toggleSection}
       >
         <div className="grid md:grid-cols-3 gap-6">
@@ -175,7 +165,7 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
         id="projects"
         title="Projects"
         subtitle="E-Voting • FitCat • Assistive Robot • RISC-V Processor • More"
-        isExpanded={expandedSection === 'projects'}
+        isExpanded={expandedSections.has('projects')}
         onToggle={toggleSection}
       >
         <div className="grid md:grid-cols-2 gap-6">
@@ -227,7 +217,7 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
         id="contact"
         title="Contact"
         subtitle="lang.gui.bu@gmail.com • San Francisco, CA"
-        isExpanded={expandedSection === 'contact'}
+        isExpanded={expandedSections.has('contact')}
         onToggle={toggleSection}
       >
         <div className="grid md:grid-cols-2 gap-8">

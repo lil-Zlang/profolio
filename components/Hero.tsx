@@ -17,13 +17,15 @@ const Hero = () => {
           </div>
         </div>
 
-        <h1 className="text-3xl md:text-4xl font-semibold mb-4 text-gray-900 tracking-tight">
+        <h1 className="text-3xl md:text-4xl font-semibold mb-2 text-gray-900 tracking-tight">
           Zhilang Gui
         </h1>
 
-        <p className="text-lg text-gray-500 max-w-xl mx-auto leading-relaxed">
-          I build intelligent systems that bridge complex algorithms with intuitive, real-world solutions.
-        </p>
+        <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-sm ring-1 ring-gray-100 p-6 text-left">
+          <p className="text-gray-700 leading-relaxed">
+            Lead AI Engineer at <span className="font-semibold text-black">EasyBee AI</span> · Recent graduate from <span className="font-semibold text-black">Boston University</span>. Engineered a <span className="font-semibold text-black">multi-skill agent framework</span> that drove a <span className="font-semibold text-black">40% efficiency gain</span> in booking and accuracy workflows. Award-winning lead for the <span className="font-semibold text-black">Society Impact Award</span> in BU senior design out of 70 teams.
+          </p>
+        </div>
       </div>
     </section>
   )
