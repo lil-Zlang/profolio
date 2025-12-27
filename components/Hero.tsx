@@ -21,11 +21,12 @@ const Hero = () => {
           Zhilang Gui
         </h1>
 
-        <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-sm ring-1 ring-gray-100 p-6 text-left">
-          <p className="text-gray-700 leading-relaxed">
-            Lead AI Engineer at <span className="font-semibold text-black">EasyBee AI</span> · Recent graduate from <span className="font-semibold text-black">Boston University</span>. Engineered a <span className="font-semibold text-black">multi-skill agent framework</span> that drove a <span className="font-semibold text-black">40% efficiency gain</span> in booking and accuracy workflows. Award-winning lead for the <span className="font-semibold text-black">Society Impact Award</span> in BU senior design out of 70 teams.
-          </p>
-        </div>
+        <p className="text-lg text-gray-600 mb-3">
+          Lead AI Engineer at <span className="font-semibold text-black">EasyBee AI</span>. Built multi-agent systems that improved booking and support workflows by <span className="font-semibold text-black">40%</span>.
+        </p>
+        <p className="text-gray-500">
+          Recent <span className="font-semibold text-black">BU</span> grad '25. Designed and engineered a semi-autonomous tricycle that won the <span className="font-semibold text-black">Society Impact Award</span> among 70 competing senior design projects.
+        </p>
       </div>
     </section>
   )

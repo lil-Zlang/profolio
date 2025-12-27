@@ -39,6 +39,14 @@ const Navbar = ({ onSectionClick }: NavbarProps) => {
             >
               X
             </a>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-white bg-black px-4 py-2 rounded-xl hover:bg-gray-800 transition-all duration-200"
+            >
+              Resume
+            </a>
           </div>
         </div>
       </div>
