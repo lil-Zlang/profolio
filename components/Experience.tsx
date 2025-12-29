@@ -2,22 +2,32 @@ const Experience = () => {
   const experiences = [
     {
       company: 'EasyBee AI',
-      role: 'Full-Stack & LLM Engineer',
+      role: 'AI Engineer',
       location: 'San Francisco, CA',
-      period: '2025 - Present',
+      period: 'July 2025 - Present',
       achievements: [
-        'Architected and pioneered a multi-agent LLM system that transformed the user experience, simplifying complex travel booking and leading to a 40% increase in customer conversion',
-        'Translated client visions into a robust product roadmap, spearheading the delivery of a zero-downtime platform engineered for a rapidly expanding user base',
+        'Built LangGraph multi-agent system with agent pooling, reducing cold-start latency from 5s to 150ms',
+        'Deployed RAG pipeline with Pinecone + SSE streaming, cutting response time to 2-3s and boosting booking speed by 40%',
       ],
     },
     {
       company: 'Cadence Design Systems',
       role: 'Machine Learning Engineering Intern',
       location: 'Austin, TX',
-      period: 'Summer 2024',
+      period: 'May 2024 - August 2024',
       achievements: [
-        'Engineered and deployed a U-Net thermal model that proved a 5% improvement in data center efficiency for enterprise clients, directly impacting operational sustainability',
-        'Innovated a 3D visualization tool with Paraview that empowered non-technical stakeholders, demystifying complex ML diagnostics and accelerating hardware validation by 15%',
+        'Developed U-Net thermal prediction model achieving 5% efficiency improvement for data center optimization',
+        'Built ETL pipeline processing 500GB thermal data, eliminating 8 hours/week of manual analysis',
+      ],
+    },
+    {
+      company: 'Terrier Motorsports',
+      role: 'GLV Team Lead',
+      location: 'Boston, MA',
+      period: '2023 - 2024',
+      achievements: [
+        'Led 5-engineer team delivering 3 embedded subsystems (steering, telemetry, driver alerts) using C++ and CAN bus',
+        'Reduced input latency from 120ms to 72ms, completing integration 1 week ahead of competition deadline',
       ],
     },
   ]
