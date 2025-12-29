@@ -53,16 +53,16 @@ export const experiences: Experience[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: 'Core Engineering',
-    skills: ['Python (PyTorch/Flask)', 'C++/C (Embedded)', 'ROS2 & Embedded Systems', 'SQL'],
+    title: 'AI/ML',
+    skills: ['LangChain & LangGraph', 'RAG Pipelines & Vector DBs', 'Multi-Agent Systems', 'PyTorch & Computer Vision'],
   },
   {
-    title: 'Cloud & DevOps',
-    skills: ['AWS & Docker', 'CI/CD (GitHub Actions)', 'Linux & Git', 'Node.js'],
+    title: 'Software & DevOps',
+    skills: ['Python (FastAPI/Flask)', 'C++ & SQL (PostgreSQL)', 'Docker & AWS (EC2)', 'GitHub Actions CI/CD'],
   },
   {
-    title: 'Solutions & Leadership',
-    skills: ['Technical Presentations', 'Stakeholder Communication', 'Agile Project Management'],
+    title: 'Tools & Data',
+    skills: ['Git & ROS2', 'Pandas & NumPy', 'Pinecone & OpenAI API', 'Async Programming'],
   },
 ]
 
