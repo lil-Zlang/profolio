@@ -69,6 +69,14 @@ export const skillCategories: SkillCategory[] = [
 // 10 Weeks 10 Apps Challenge Projects (Newest First)
 export const tenWeeksTenAppsProjects: Project[] = [
   {
+    title: 'AdFlow',
+    description: 'AI-powered video ad generator that transforms any product URL into professional short-form video advertisements in under 60 seconds. Features Claude Agent SDK orchestration, dual video providers (FreePik WAN 2.6 & Kie.ai Veo 3), intelligent product metadata extraction, and a FastAPI dashboard with real-time job tracking.',
+    tags: ['week7', '#10weeks10apps', 'Python', 'Claude Agent SDK', 'FastAPI', 'AI/LLM', 'Video Generation', 'Async'],
+    github: 'https://github.com/jknoll/agentic-orchestration',
+    url: 'https://agentic-orchestration.vercel.app/',
+    image: '/images/adflow-screenshot.png',
+  },
+  {
     title: 'WeRead',
     description: 'AI-powered Chrome extension that reduces article reading time by 12 min on average. Full-stack product with Chrome Extension (MV3), 7 serverless API endpoints, Stripe subscriptions, and Next.js marketing site. Features parallel AI processing pipeline (4 concurrent LLM calls in 3-5s), Google OAuth, and Notion-inspired UI with dual reading modes.',
     tags: ['week6', '#10weeks10apps', 'Chrome Extension', 'Next.js', 'TypeScript', 'Node.js', 'Vercel', 'AI/LLM', 'Stripe'],
@@ -198,7 +206,7 @@ export const aboutText = {
   subtitle: "I'm an engineer focused on turning real-world problems into simple, shippable products.",
   education: "At Boston University, this led me to create a semi-autonomous cycle for the visually impaired—winning the Societal Impact Award.",
   philosophy: "I bring that same user-first mindset to my professional work, solving real problems for real people.",
-  challenge: "Currently: Week 6 of 10 — 10 weeks, 10 apps challenge: building and shipping one application every week.",
+  challenge: "Currently: Week 7 of 10 — 10 weeks, 10 apps challenge: building and shipping one application every week.",
 }
 
 export const contactText = {
