@@ -69,6 +69,14 @@ export const skillCategories: SkillCategory[] = [
 // 10 Weeks 10 Apps Challenge Projects (Newest First)
 export const tenWeeksTenAppsProjects: Project[] = [
   {
+    title: 'VoiceCode',
+    description: 'AI-powered voice-to-PR agent that lives in your online meetings (Zoom, Google Meet) and converts dev discussions into production-ready pull requests after the meeting. Supported by CodeRabbit, Daytona, and ElevenLabs.',
+    tags: ['week8', '#10weeks10apps', 'AI/LLM', 'Voice AI', 'GitHub API', 'Code Generation'],
+    github: 'https://github.com/lil-Zlang/VoiceCode',
+    url: 'https://vercel-site-mu.vercel.app/',
+    image: '/images/voicecode.png',
+  },
+  {
     title: 'AdFlow',
     description: 'AI-powered video ad generator that transforms any product URL into professional short-form video advertisements in under 60 seconds. Features Claude Agent SDK orchestration, dual video providers (FreePik WAN 2.6 & Kie.ai Veo 3), intelligent product metadata extraction, and a FastAPI dashboard with real-time job tracking.',
     tags: ['week7', '#10weeks10apps', 'Python', 'Claude Agent SDK', 'FastAPI', 'AI/LLM', 'Video Generation', 'Async'],
@@ -147,6 +155,7 @@ export const projects: Project[] = [
     description: 'COE Societal Impact Award winner. 92% navigation accuracy for visually impaired users',
     tags: ['ROS2', 'Embedded Systems', 'Computer Vision'],
     github: 'https://github.com/lil-Zlang',
+    image: '/images/Semi-Autonomous-Cycle.jpeg',
   },
   {
     title: 'AI Travel Co-Pilot',
@@ -159,21 +168,21 @@ export const projects: Project[] = [
     description: 'Secure real-time P2P communication protocol using C and UDP for embedded system. ESP32-based fobs with IR transmission and bully algorithm for leader election',
     tags: ['C', 'UDP', 'ESP32', 'Node.js', 'TingoDB'],
     github: 'https://github.com/lil-Zlang',
-    image: '/images/Secure E-Voting.jpeg',
+    image: '/images/Secure-E-Voting.jpeg',
   },
   {
     title: 'FitCat - Activity Tracking',
     description: 'Real-time multi-cat activity tracking with ESP32-based collars. Full-stack IoT platform with accelerometers, displays, and live leaderboard',
     tags: ['ESP32', 'IoT', 'Node.js', 'Raspberry Pi'],
     github: 'https://github.com/lil-Zlang',
-    image: '/images/FitCat - Activity Tracking for Cats.jpeg',
+    image: '/images/FitCat-Activity-Tracking-for-Cats.jpeg',
   },
   {
     title: 'Personal Assistive Robot',
     description: 'Autonomous indoor navigation with Optitrack positioning, PID control, and real-time collision avoidance using Sharp IR sensors',
     tags: ['ESP32', 'PID Control', 'PWM', 'Embedded'],
     github: 'https://github.com/lil-Zlang',
-    image: '/images/Personal Assistive Robot.jpeg',
+    image: '/images/Personal-Assistive-Robot.jpeg',
   },
   {
     title: 'Pokémon Masters: Victory Road',
@@ -216,7 +225,7 @@ export const aboutText = {
   subtitle: "I'm an engineer focused on turning real-world problems into simple, shippable products.",
   education: "At Boston University, this led me to create a semi-autonomous cycle for the visually impaired—winning the Societal Impact Award.",
   philosophy: "I bring that same user-first mindset to my professional work, solving real problems for real people.",
-  challenge: "Currently: Week 7 of 10 — 10 weeks, 10 apps challenge: building and shipping one application every week.",
+  challenge: "Currently: Week 8 of 10 — 10 weeks, 10 apps challenge: building and shipping one application every week.",
 }
 
 export const contactText = {

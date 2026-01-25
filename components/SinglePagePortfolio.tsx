@@ -80,7 +80,7 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
       <ExpandableSection
         id="10weeks10apps"
         title="10 Weeks 10 Apps"
-        subtitle="WeRead • MenuCopilot • Prompt CoPilot • SF Weekly News Digest • SF Most Wanted Parkers • ReelOrFake"
+        subtitle="VoiceCode • AdFlow • WeRead • MenuCopilot • Prompt CoPilot • SF Weekly News Digest • More"
         isExpanded={expandedSections.has('10weeks10apps')}
         onToggle={toggleSection}
       >
@@ -115,6 +115,14 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
                   <TagList tags={project.tags} />
                 </div>
                 <div className="flex flex-wrap gap-4 pt-2 border-t border-gray-200">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-black hover:underline text-sm font-medium transition-colors"
+                  >
+                    View Code →
+                  </a>
                   {project.url && (
                     <a
                       href={project.url}
@@ -170,31 +178,48 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
       >
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project) => (
-            <div key={project.title} className="border border-gray-200 p-4">
-              <h3 className="font-bold text-black mb-2">{project.title}</h3>
-              <p className="text-gray-700 text-sm mb-3 leading-relaxed">{project.description}</p>
-              <div className="mb-3">
-                <TagList tags={project.tags} />
-              </div>
-              <div className="flex gap-4">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-black hover:underline text-sm"
-                >
-                  View Code →
-                </a>
-                {project.url && (
+            <div
+              key={project.title}
+              className="border border-gray-200 overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow bg-white"
+            >
+              {/* Screenshot Image - Prominent Display */}
+              {project.image && (
+                <div className="w-full h-48 bg-gray-100 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} screenshot`}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              )}
+
+              {/* Content */}
+              <div className="p-5">
+                <h3 className="font-bold text-black mb-2 text-lg">{project.title}</h3>
+                <p className="text-gray-700 text-sm mb-4 leading-relaxed">{project.description}</p>
+                <div className="mb-4">
+                  <TagList tags={project.tags} />
+                </div>
+                <div className="flex flex-wrap gap-4 pt-2 border-t border-gray-200">
                   <a
-                    href={project.url}
+                    href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline text-sm"
+                    className="text-black hover:underline text-sm font-medium"
                   >
-                    Live Demo →
+                    View Code →
                   </a>
-                )}
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-700 hover:underline text-sm font-medium transition-colors"
+                    >
+                      Live Demo →
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
