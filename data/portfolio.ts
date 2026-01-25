@@ -130,6 +130,13 @@ export const tenWeeksTenAppsProjects: Project[] = [
 // Regular Projects (excluding 10weeks10apps)
 export const projects: Project[] = [
   {
+    title: 'Skimmd',
+    description: 'Lightweight markdown document reader with live editing, auto-generated TOC, theme switching, and real-time file sync via SSE. Clean minimal interface for technical docs and note-taking.',
+    tags: ['JavaScript', 'HTML', 'Markdown', 'SSE'],
+    github: 'https://github.com/lil-Zlang/skimmd',
+    url: 'https://mdreader-rho.vercel.app',
+  },
+  {
     title: 'AI Content Detective',
     description: 'React-TypeScript web app that detects AI-generated content in real time',
     tags: ['React', 'TypeScript', 'Supabase'],
@@ -152,18 +159,21 @@ export const projects: Project[] = [
     description: 'Secure real-time P2P communication protocol using C and UDP for embedded system. ESP32-based fobs with IR transmission and bully algorithm for leader election',
     tags: ['C', 'UDP', 'ESP32', 'Node.js', 'TingoDB'],
     github: 'https://github.com/lil-Zlang',
+    image: '/images/Secure E-Voting.jpeg',
   },
   {
     title: 'FitCat - Activity Tracking',
     description: 'Real-time multi-cat activity tracking with ESP32-based collars. Full-stack IoT platform with accelerometers, displays, and live leaderboard',
     tags: ['ESP32', 'IoT', 'Node.js', 'Raspberry Pi'],
     github: 'https://github.com/lil-Zlang',
+    image: '/images/FitCat - Activity Tracking for Cats.jpeg',
   },
   {
     title: 'Personal Assistive Robot',
     description: 'Autonomous indoor navigation with Optitrack positioning, PID control, and real-time collision avoidance using Sharp IR sensors',
     tags: ['ESP32', 'PID Control', 'PWM', 'Embedded'],
     github: 'https://github.com/lil-Zlang',
+    image: '/images/Personal Assistive Robot.jpeg',
   },
   {
     title: 'Pokémon Masters: Victory Road',

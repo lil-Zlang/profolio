@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { projects } from '@/data/portfolio'
 
 const Projects = () => {
@@ -9,7 +10,18 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project) => (
-            <div key={project.title} className="bg-white p-6 border border-gray-200">
+            <div key={project.title} className="bg-white border border-gray-200 overflow-hidden">
+              {project.image && (
+                <div className="relative w-full h-48">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )}
+              <div className="p-6">
               <h3 className="text-xl font-bold mb-3 text-black">
                 {project.title}
               </h3>
@@ -45,6 +57,7 @@ const Projects = () => {
                     Live Demo →
                   </a>
                 )}
+              </div>
               </div>
             </div>
           ))}
