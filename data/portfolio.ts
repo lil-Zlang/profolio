@@ -69,6 +69,14 @@ export const skillCategories: SkillCategory[] = [
 // 10 Weeks 10 Apps Challenge Projects (Newest First)
 export const tenWeeksTenAppsProjects: Project[] = [
   {
+    title: 'Mafia Ace',
+    description: 'AI-powered Mafia game built on the ACE (Agentic Context Engineering) self-improvement framework from Stanford. LLM agents play live Mafia rounds, reflect on their decisions, and evolve adaptive strategy playbooks without any weight updates.',
+    tags: ['hackathon', '#10weeks10apps', 'Python', 'AI/LLM', 'Multi-Agent', 'Game Theory'],
+    github: 'https://github.com/alexanderzliu/weavehacks3',
+    demoVideo: 'https://www.loom.com/share/98b1c9ca826546dea5a5206be9583e25',
+    image: '/images/mafia-ace-screenshot.png',
+  },
+  {
     title: 'VoiceCode',
     description: 'AI-powered voice-to-PR agent that lives in your online meetings (Zoom, Google Meet) and converts dev discussions into production-ready pull requests after the meeting. Supported by CodeRabbit, Daytona, and ElevenLabs.',
     tags: ['week8', '#10weeks10apps', 'AI/LLM', 'Voice AI', 'GitHub API', 'Code Generation'],

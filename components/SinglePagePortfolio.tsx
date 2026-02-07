@@ -80,7 +80,7 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
       <ExpandableSection
         id="10weeks10apps"
         title="10 Weeks 10 Apps"
-        subtitle="VoiceCode • AdFlow • WeRead • MenuCopilot • Prompt CoPilot • SF Weekly News Digest • More"
+        subtitle="Mafia Ace • VoiceCode • AdFlow • WeRead • MenuCopilot • Prompt CoPilot • SF Weekly News Digest • More"
         isExpanded={expandedSections.has('10weeks10apps')}
         onToggle={toggleSection}
       >
@@ -131,6 +131,16 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
                       className="text-blue-600 hover:text-blue-700 hover:underline text-sm font-medium transition-colors"
                     >
                       Live Demo →
+                    </a>
+                  )}
+                  {project.demoVideo && (
+                    <a
+                      href={project.demoVideo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-purple-600 hover:text-purple-700 hover:underline text-sm font-medium transition-colors"
+                    >
+                      Demo Video →
                     </a>
                   )}
                   {project.chromeStoreUrl && (

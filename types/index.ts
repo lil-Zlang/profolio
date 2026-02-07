@@ -22,6 +22,7 @@ export interface Project {
   url?: string
   image?: string
   chromeStoreUrl?: string
+  demoVideo?: string
 }
 
 export interface Stat {
