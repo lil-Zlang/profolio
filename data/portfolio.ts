@@ -69,6 +69,14 @@ export const skillCategories: SkillCategory[] = [
 // 10 Weeks 10 Apps Challenge Projects (Newest First)
 export const tenWeeksTenAppsProjects: Project[] = [
   {
+    title: 'Crimson — AWS × Datadog Hackathon Winner',
+    description: 'Automated red-teaming platform that discovers vulnerabilities in LLM-based agent systems. Four-stage multi-agent pipeline (Recon → Plan → Attack → Report) built on AWS Strands Agents + Bedrock probes target agents across 6 attack categories including prompt injection, secret exfiltration, and policy bypass. Features Neo4j attack surface visualization, Datadog trace deep-linking, and severity-rated vulnerability reports with actionable remediation steps.',
+    tags: ['🏆 Hackathon Winner', 'AWS × Datadog', 'Python', 'AWS Strands Agents', 'AWS Bedrock', 'Neo4j', 'Datadog', 'AI Security', 'Red Teaming', 'FastAPI'],
+    github: 'https://github.com/alexanderzliu/aws-dd-hackathon',
+    demoVideo: 'https://www.loom.com/share/df42d52224c340a3a098fc3223aa680d',
+    image: '/images/Crimson.png',
+  },
+  {
     title: 'Mafia Ace',
     description: 'AI-powered Mafia game built on the ACE (Agentic Context Engineering) self-improvement framework from Stanford. LLM agents play live Mafia rounds, reflect on their decisions, and evolve adaptive strategy playbooks without any weight updates.',
     tags: ['hackathon', '#10weeks10apps', 'Python', 'AI/LLM', 'Multi-Agent', 'Game Theory'],
