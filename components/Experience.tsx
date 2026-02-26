@@ -1,66 +1,58 @@
+import { experiences } from '@/data/portfolio'
+
 const Experience = () => {
-  const experiences = [
-    {
-      company: 'EasyBee AI',
-      role: 'AI Engineer',
-      location: 'San Francisco, CA',
-      period: 'July 2025 - Present',
-      achievements: [
-        'Built LangGraph multi-agent system with agent pooling, reducing cold-start latency from 5s to 150ms',
-        'Deployed RAG pipeline with Pinecone + SSE streaming, cutting response time to 2-3s and boosting booking speed by 40%',
-      ],
-    },
-    {
-      company: 'Cadence Design Systems',
-      role: 'Machine Learning Engineering Intern',
-      location: 'Austin, TX',
-      period: 'May 2024 - August 2024',
-      achievements: [
-        'Developed U-Net thermal prediction model achieving 5% efficiency improvement for data center optimization',
-        'Built ETL pipeline processing 500GB thermal data, eliminating 8 hours/week of manual analysis',
-      ],
-    },
-    {
-      company: 'Terrier Motorsports',
-      role: 'GLV Team Lead',
-      location: 'Boston, MA',
-      period: '2023 - 2024',
-      achievements: [
-        'Led 5-engineer team delivering 3 embedded subsystems (steering, telemetry, driver alerts) using C++ and CAN bus',
-        'Reduced input latency from 120ms to 72ms, completing integration 1 week ahead of competition deadline',
-      ],
-    },
-  ]
-
   return (
-    <section id="experience" className="py-20 px-8 bg-gray-50">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12 text-black">Experience</h2>
+    <section id="experience" className="bg-white dark:bg-gray-950 transition-colors duration-300">
+      <div className="max-w-6xl mx-auto px-8 py-12">
+        <h2 className="text-2xl font-black uppercase tracking-tight text-black dark:text-white mb-8 pb-6 border-b border-gray-200 dark:border-gray-800">
+          Experience
+        </h2>
 
-        <div className="space-y-12">
+        <div className="space-y-10">
           {experiences.map((exp) => (
-            <div key={exp.company} className="bg-white p-8 border border-gray-200">
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold text-black mb-2">
-                  {exp.company}
-                </h3>
-                <p className="text-lg font-semibold text-gray-700 mb-2">
-                  {exp.role}
-                </p>
-                <div className="flex flex-wrap gap-4 text-sm text-gray-600">
-                  <span>{exp.period}</span>
-                  <span>•</span>
-                  <span>{exp.location}</span>
+            <div key={exp.company} className="flex gap-5">
+              {/* Company Logo */}
+              {exp.image && (
+                <div className="flex-shrink-0 w-14 h-14 mt-1">
+                  <img
+                    src={exp.image}
+                    alt={`${exp.company} logo`}
+                    className="w-full h-full object-contain dark:invert dark:opacity-80"
+                  />
                 </div>
-              </div>
+              )}
 
-              <div className="space-y-4">
-                {exp.achievements.map((achievement, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className="mt-2 w-1 h-1 bg-black rounded-full flex-shrink-0" />
-                    <p className="text-gray-700">{achievement}</p>
+              {/* Content */}
+              <div className="flex-grow">
+                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-1">
+                  <div>
+                    {exp.url ? (
+                      <a
+                        href={exp.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-lg font-bold text-black dark:text-white hover:underline"
+                      >
+                        {exp.company}
+                      </a>
+                    ) : (
+                      <h3 className="text-lg font-bold text-black dark:text-white">{exp.company}</h3>
+                    )}
+                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300">{exp.role}</p>
                   </div>
-                ))}
+                  <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                    {exp.period} &middot; {exp.location}
+                  </p>
+                </div>
+
+                <ul className="mt-3 space-y-1.5">
+                  {exp.achievements.map((item, i) => (
+                    <li key={i} className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex gap-2">
+                      <span className="text-gray-400 dark:text-gray-500 mt-0.5">&#8226;</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           ))}
@@ -71,4 +63,3 @@ const Experience = () => {
 }
 
 export default Experience
-

@@ -237,7 +237,7 @@ const SinglePagePortfolio = forwardRef<SinglePagePortfolioRef>((props, ref) => {
 
         <div className="text-center mt-6 pt-6 border-t border-gray-200">
           <a
-            href="https://github.com/lil-Zlang"
+            href="https://github.com/lgui30"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-6 py-2 bg-black text-white border-2 border-black hover:bg-white hover:text-black transition-colors"

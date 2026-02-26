@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
+import { ThemeProvider } from '@/contexts/ThemeContext'
 import './globals.css'
 
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] })
@@ -16,11 +17,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={jetbrainsMono.className}>
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
 }
-
