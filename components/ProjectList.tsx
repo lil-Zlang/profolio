@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { tenWeeksTenAppsProjects, projects } from '@/data/portfolio'
-import { Project } from '@/types'
+import { Project, PROJECT_CATEGORIES, ProjectCategory } from '@/types'
 
 const allProjects: Project[] = [
   ...tenWeeksTenAppsProjects,
@@ -109,6 +109,11 @@ const GridIcon = () => (
 /* ── Main Component ── */
 const ProjectList = () => {
   const [view, setView] = useState<'list' | 'grid'>('grid')
+  const [activeCategory, setActiveCategory] = useState<ProjectCategory>('All')
+
+  const filteredProjects = activeCategory === 'All'
+    ? allProjects
+    : allProjects.filter((p) => p.categories.includes(activeCategory as Exclude<ProjectCategory, 'All'>))
 
   return (
     <section id="projects" className="bg-white dark:bg-gray-950 transition-colors duration-300">
@@ -134,16 +139,43 @@ const ProjectList = () => {
           </div>
         </div>
 
+        {/* Category Filter Tabs */}
+        <div className="flex flex-wrap gap-2 pt-6">
+          {PROJECT_CATEGORIES.map((category) => {
+            const count = category === 'All'
+              ? allProjects.length
+              : allProjects.filter((p) => p.categories.includes(category as Exclude<ProjectCategory, 'All'>)).length
+            const isActive = activeCategory === category
+
+            return (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-full ${
+                  isActive
+                    ? 'bg-black dark:bg-white text-white dark:text-black'
+                    : 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-black dark:hover:text-white'
+                }`}
+              >
+                {category}
+                <span className={`ml-1.5 text-[10px] ${isActive ? 'text-gray-300 dark:text-gray-600' : 'text-gray-400 dark:text-gray-500'}`}>
+                  {count}
+                </span>
+              </button>
+            )
+          })}
+        </div>
+
         {/* Projects */}
         {view === 'list' ? (
           <div>
-            {allProjects.map((project, index) => (
+            {filteredProjects.map((project, index) => (
               <ListCard key={project.title} project={project} index={index} />
             ))}
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-12">
-            {allProjects.map((project) => (
+            {filteredProjects.map((project) => (
               <GridCard key={project.title} project={project} />
             ))}
           </div>
