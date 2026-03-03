@@ -32,7 +32,7 @@ const Footer = () => {
                 GitHub
               </a>
               <a
-                href="https://www.linkedin.com/in/zhilang-gui-b5b59b254/"
+                href="https://www.linkedin.com/in/lgui30/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-gray-400 hover:text-white transition-colors uppercase tracking-wider"

@@ -42,7 +42,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <a
-                      href="https://www.linkedin.com/in/zhilang-gui-b5b59b254/"
+                      href="https://www.linkedin.com/in/lgui30/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-700 hover:text-black transition-colors"

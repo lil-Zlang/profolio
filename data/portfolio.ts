@@ -251,7 +251,7 @@ export const navItems: NavItem[] = [
 
 export const socialLinks: SocialLink[] = [
   { name: 'GitHub', url: 'https://github.com/lgui30' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/zhilang-gui-b5b59b254/' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/lgui30/' },
   { name: 'Email', url: 'mailto:lang.gui.bu@gmail.com', isEmail: true },
 ]
 
