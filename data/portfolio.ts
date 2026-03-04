@@ -179,12 +179,19 @@ export const projects: Project[] = [
     github: 'https://github.com/lgui30/ai-content-detective',
   },
   {
-    title: 'Semi-Autonomous Cycle',
-    description: 'COE Societal Impact Award winner. 92% navigation accuracy for visually impaired users',
-    tags: ['ROS2', 'Embedded Systems', 'Computer Vision'],
+    title: 'A Semi-Autonomous Recumbent Tricycle for Visually Impaired Users',
+    description: 'BU COE Societal Impact Award & Design Excellence Award winner. Built an autonomous navigation system achieving 92% accuracy using ROS2, LiDAR SLAM, and computer vision to enable safe independent mobility for visually impaired users. Led a 5-person team under Prof. Eshed Ohn-Bar.',
+    tags: ['🏆 Award Winner', 'ROS2', 'LiDAR', 'Computer Vision', 'Embedded Systems', 'C++', 'Python'],
     categories: ['Hardware/IoT'],
     github: 'https://github.com/lgui30',
-    image: '/images/Semi-Autonomous-Cycle.jpeg',
+    image: '/images/tricycle-display.jpg',
+    images: [
+      '/images/tricycle-award-ceremony.jpg',
+      '/images/tricycle-display.jpg',
+      '/images/tricycle-presenting.jpg',
+      '/images/tricycle-demo.jpg',
+    ],
+    paperUrl: 'https://docs.google.com/document/d/1800YjAgGQC5IPDnASf-yITvOSGpsFeLwwYxLTnPjePU/edit?usp=sharing',
   },
   {
     title: 'AI Travel Co-Pilot',
@@ -256,11 +263,11 @@ export const socialLinks: SocialLink[] = [
 ]
 
 export const aboutText = {
-  intro: "",
+  intro: "I build things that make complex technology feel simple. Most of my work sits at the intersection of AI systems and real-world problems — multi-agent architectures, production RAG pipelines, and tools that people actually use.",
   subtitle: "I'm an engineer focused on turning real-world problems into simple, shippable products.",
-  education: "At Boston University, this led me to create a semi-autonomous cycle for the visually impaired—winning the Societal Impact Award.",
+  education: "At Boston University, this led me to create a semi-autonomous recumbent tricycle for visually impaired users — winning both the Societal Impact Award and Design Excellence Award.",
   philosophy: "I bring that same user-first mindset to my professional work, solving real problems for real people.",
-  challenge: "Currently: Week 8 of 10 — 10 weeks, 10 apps challenge: building and shipping one application every week.",
+  challenge: "Recently completed the 10 weeks, 10 apps challenge — building and shipping one full application every week, from Chrome extensions to hackathon-winning AI security platforms.",
 }
 
 export const contactText = {

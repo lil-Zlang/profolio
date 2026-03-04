@@ -25,8 +25,10 @@ export interface Project {
   github: string
   url?: string
   image?: string
+  images?: string[]
   chromeStoreUrl?: string
   demoVideo?: string
+  paperUrl?: string
 }
 
 export interface Stat {
@@ -43,6 +45,16 @@ export interface SocialLink {
   name: string
   url: string
   isEmail?: boolean
+}
+
+export interface BlogPost {
+  slug: string
+  title: string
+  description: string
+  date: string
+  tags: string[]
+  readTime: string
+  content: string
 }
 
 // Component prop types

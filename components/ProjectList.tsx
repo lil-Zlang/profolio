@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import Image from 'next/image'
 import { tenWeeksTenAppsProjects, projects } from '@/data/portfolio'
 import { Project, PROJECT_CATEGORIES, ProjectCategory } from '@/types'
 
@@ -8,6 +9,8 @@ const allProjects: Project[] = [
   ...tenWeeksTenAppsProjects,
   ...projects,
 ]
+
+type SortOption = 'default' | 'newest' | 'oldest'
 
 const ArrowIcon = () => (
   <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -27,20 +30,54 @@ const ProjectLink = ({ href, label, color = 'text-black dark:text-white border-b
   </a>
 )
 
+/* ── Award Badge ── */
+const AwardTag = ({ tag }: { tag: string }) => (
+  <span className="text-[10px] uppercase tracking-wider font-medium px-2 py-0.5 text-amber-700 dark:text-amber-400 border border-amber-400 dark:border-amber-500 bg-amber-50 dark:bg-amber-950/30">
+    {tag}
+  </span>
+)
+
+const Tag = ({ tag }: { tag: string }) => {
+  if (tag.startsWith('🏆')) return <AwardTag tag={tag} />
+  return (
+    <span className="text-[10px] uppercase tracking-wider font-medium text-gray-500 dark:text-gray-400 border border-gray-300 dark:border-gray-600 px-2 py-0.5">
+      {tag}
+    </span>
+  )
+}
+
+/* ── Image Gallery (2x2 grid for multi-image projects) ── */
+const ImageGallery = ({ images, title }: { images: string[]; title: string }) => (
+  <div className="grid grid-cols-2 gap-2 rounded-lg overflow-hidden">
+    {images.map((src, i) => (
+      <div key={i} className="relative overflow-hidden bg-gray-100 dark:bg-gray-800 aspect-[4/3]">
+        <Image
+          src={src}
+          alt={`${title} photo ${i + 1}`}
+          fill
+          sizes="(max-width: 768px) 50vw, 25vw"
+          className="object-cover hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+      </div>
+    ))}
+  </div>
+)
+
 /* ── List View Card ── */
 const ListCard = ({ project, index }: { project: Project; index: number }) => {
+  const hasImages = project.images && project.images.length > 1
   const hasImage = !!project.image
   const isEven = index % 2 === 0
+  const hasVisual = hasImages || hasImage
 
   return (
-    <div className="border-b border-gray-200 dark:border-gray-800 py-12 md:py-16">
-      <div className={`flex flex-col ${hasImage ? 'md:flex-row' : ''} gap-8 md:gap-12 ${!isEven && hasImage ? 'md:flex-row-reverse' : ''}`}>
-        <div className={`flex-1 flex flex-col justify-center ${hasImage ? 'md:w-1/2' : ''}`}>
+    <div className="border-b border-gray-200 dark:border-gray-800 py-12 md:py-16 animate-fade-in">
+      <div className={`flex flex-col ${hasVisual ? 'md:flex-row' : ''} gap-8 md:gap-12 ${!isEven && hasVisual ? 'md:flex-row-reverse' : ''}`}>
+        <div className={`flex-1 flex flex-col justify-center ${hasVisual ? 'md:w-1/2' : ''}`}>
           <div className="flex flex-wrap items-center gap-2 mb-4">
-            {project.tags.slice(0, 4).map((tag) => (
-              <span key={tag} className="text-[10px] uppercase tracking-wider font-medium text-gray-500 dark:text-gray-400 border border-gray-300 dark:border-gray-600 px-2 py-0.5">
-                {tag}
-              </span>
+            {project.tags.slice(0, 5).map((tag) => (
+              <Tag key={tag} tag={tag} />
             ))}
           </div>
           <h3 className="text-3xl md:text-4xl font-black text-black dark:text-white uppercase tracking-tight leading-tight mb-4">
@@ -52,13 +89,25 @@ const ListCard = ({ project, index }: { project: Project; index: number }) => {
             {project.url && <ProjectLink href={project.url} label="Live Demo" />}
             {project.demoVideo && <ProjectLink href={project.demoVideo} label="Demo Video" color="text-purple-700 dark:text-purple-400 border-purple-700 dark:border-purple-400 hover:text-purple-500 dark:hover:text-purple-300 hover:border-purple-500 dark:hover:border-purple-300" />}
             {project.chromeStoreUrl && <ProjectLink href={project.chromeStoreUrl} label="Chrome Store" color="text-green-700 dark:text-green-400 border-green-700 dark:border-green-400 hover:text-green-500 dark:hover:text-green-300 hover:border-green-500 dark:hover:border-green-300" />}
+            {project.paperUrl && <ProjectLink href={project.paperUrl} label="Read Paper" color="text-blue-700 dark:text-blue-400 border-blue-700 dark:border-blue-400 hover:text-blue-500 dark:hover:text-blue-300 hover:border-blue-500 dark:hover:border-blue-300" />}
           </div>
         </div>
-        {hasImage && (
+        {hasVisual && (
           <div className="flex-1 md:w-1/2">
-            <div className="relative overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 aspect-[4/3]">
-              <img src={project.image} alt={`${project.title} screenshot`} className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" />
-            </div>
+            {hasImages ? (
+              <ImageGallery images={project.images!} title={project.title} />
+            ) : hasImage ? (
+              <div className="relative overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 aspect-[4/3]">
+                <Image
+                  src={project.image!}
+                  alt={`${project.title} screenshot`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+            ) : null}
           </div>
         )}
       </div>
@@ -68,18 +117,23 @@ const ListCard = ({ project, index }: { project: Project; index: number }) => {
 
 /* ── Grid View Card ── */
 const GridCard = ({ project }: { project: Project }) => (
-  <div className="border border-gray-200 dark:border-gray-800 overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow bg-white dark:bg-gray-900">
+  <div className="border border-gray-200 dark:border-gray-800 overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all duration-300 bg-white dark:bg-gray-900 animate-fade-in">
     {project.image && (
-      <div className="w-full h-48 bg-gray-100 dark:bg-gray-800 overflow-hidden">
-        <img src={project.image} alt={`${project.title} screenshot`} className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" />
+      <div className="relative w-full h-48 bg-gray-100 dark:bg-gray-800 overflow-hidden">
+        <Image
+          src={project.image}
+          alt={`${project.title} screenshot`}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover object-top hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
       </div>
     )}
     <div className="p-5">
       <div className="flex flex-wrap items-center gap-1.5 mb-3">
         {project.tags.slice(0, 3).map((tag) => (
-          <span key={tag} className="text-[10px] uppercase tracking-wider font-medium text-gray-500 dark:text-gray-400 border border-gray-300 dark:border-gray-600 px-1.5 py-0.5">
-            {tag}
-          </span>
+          <Tag key={tag} tag={tag} />
         ))}
       </div>
       <h3 className="font-bold text-black dark:text-white mb-2 text-lg leading-tight">{project.title}</h3>
@@ -88,6 +142,7 @@ const GridCard = ({ project }: { project: Project }) => (
         <ProjectLink href={project.github} label="Code" />
         {project.url && <ProjectLink href={project.url} label="Demo" />}
         {project.demoVideo && <ProjectLink href={project.demoVideo} label="Video" color="text-purple-700 dark:text-purple-400 border-purple-700 dark:border-purple-400 hover:text-purple-500 dark:hover:text-purple-300 hover:border-purple-500 dark:hover:border-purple-300" />}
+        {project.paperUrl && <ProjectLink href={project.paperUrl} label="Paper" color="text-blue-700 dark:text-blue-400 border-blue-700 dark:border-blue-400 hover:text-blue-500 dark:hover:text-blue-300 hover:border-blue-500 dark:hover:border-blue-300" />}
       </div>
     </div>
   </div>
@@ -106,14 +161,44 @@ const GridIcon = () => (
   </svg>
 )
 
+const SortIcon = () => (
+  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
+  </svg>
+)
+
 /* ── Main Component ── */
 const ProjectList = () => {
   const [view, setView] = useState<'list' | 'grid'>('grid')
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>('All')
+  const [sort, setSort] = useState<SortOption>('default')
+  const [animating, setAnimating] = useState(false)
+  const contentRef = useRef<HTMLDivElement>(null)
 
-  const filteredProjects = activeCategory === 'All'
+  const baseFiltered = activeCategory === 'All'
     ? allProjects
     : allProjects.filter((p) => p.categories.includes(activeCategory as Exclude<ProjectCategory, 'All'>))
+
+  const filteredProjects = sort === 'default'
+    ? baseFiltered
+    : [...baseFiltered].reverse()
+
+  // Trigger fade transition on filter/sort change
+  const handleCategoryChange = (category: ProjectCategory) => {
+    setAnimating(true)
+    setTimeout(() => {
+      setActiveCategory(category)
+      setAnimating(false)
+    }, 150)
+  }
+
+  const handleSortChange = (s: SortOption) => {
+    setAnimating(true)
+    setTimeout(() => {
+      setSort(s)
+      setAnimating(false)
+    }, 150)
+  }
 
   return (
     <section id="projects" className="bg-white dark:bg-gray-950 transition-colors duration-300">
@@ -121,26 +206,43 @@ const ProjectList = () => {
         {/* Header + Toggle */}
         <div className="flex items-center justify-between pt-12 pb-6 border-b border-gray-200 dark:border-gray-800">
           <h2 className="text-2xl font-black uppercase tracking-tight text-black dark:text-white">Selected Works</h2>
-          <div className="flex items-center border border-gray-300 dark:border-gray-600 rounded-lg overflow-hidden">
-            <button
-              onClick={() => setView('list')}
-              className={`p-2 transition-colors ${view === 'list' ? 'bg-black dark:bg-white text-white dark:text-black' : 'bg-white dark:bg-gray-900 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white'}`}
-              aria-label="List view"
-            >
-              <ListIcon />
-            </button>
-            <button
-              onClick={() => setView('grid')}
-              className={`p-2 transition-colors ${view === 'grid' ? 'bg-black dark:bg-white text-white dark:text-black' : 'bg-white dark:bg-gray-900 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white'}`}
-              aria-label="Grid view"
-            >
-              <GridIcon />
-            </button>
+          <div className="flex items-center gap-3">
+            {/* Sort dropdown */}
+            <div className="flex items-center gap-1.5">
+              <SortIcon />
+              <select
+                value={sort}
+                onChange={(e) => handleSortChange(e.target.value as SortOption)}
+                className="text-xs font-bold uppercase tracking-wider bg-transparent text-gray-500 dark:text-gray-400 cursor-pointer focus:outline-none hover:text-black dark:hover:text-white transition-colors"
+              >
+                <option value="default">Default</option>
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+              </select>
+            </div>
+
+            {/* View toggle */}
+            <div className="flex items-center border border-gray-300 dark:border-gray-600 rounded-lg overflow-hidden">
+              <button
+                onClick={() => setView('list')}
+                className={`p-2 transition-colors ${view === 'list' ? 'bg-black dark:bg-white text-white dark:text-black' : 'bg-white dark:bg-gray-900 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white'}`}
+                aria-label="List view"
+              >
+                <ListIcon />
+              </button>
+              <button
+                onClick={() => setView('grid')}
+                className={`p-2 transition-colors ${view === 'grid' ? 'bg-black dark:bg-white text-white dark:text-black' : 'bg-white dark:bg-gray-900 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white'}`}
+                aria-label="Grid view"
+              >
+                <GridIcon />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Category Filter Tabs */}
-        <div className="flex flex-wrap gap-2 pt-6">
+        {/* Category Filter Tabs — horizontal scroll on mobile */}
+        <div className="flex gap-2 pt-6 overflow-x-auto scrollbar-hide -mx-8 px-8 pb-2">
           {PROJECT_CATEGORIES.map((category) => {
             const count = category === 'All'
               ? allProjects.length
@@ -150,8 +252,8 @@ const ProjectList = () => {
             return (
               <button
                 key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all rounded-full ${
+                onClick={() => handleCategoryChange(category)}
+                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200 rounded-full whitespace-nowrap shrink-0 ${
                   isActive
                     ? 'bg-black dark:bg-white text-white dark:text-black'
                     : 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-black dark:hover:text-white'
@@ -166,20 +268,25 @@ const ProjectList = () => {
           })}
         </div>
 
-        {/* Projects */}
-        {view === 'list' ? (
-          <div>
-            {filteredProjects.map((project, index) => (
-              <ListCard key={project.title} project={project} index={index} />
-            ))}
-          </div>
-        ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-12">
-            {filteredProjects.map((project) => (
-              <GridCard key={project.title} project={project} />
-            ))}
-          </div>
-        )}
+        {/* Projects — with fade transition */}
+        <div
+          ref={contentRef}
+          className={`transition-all duration-200 ${animating ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}
+        >
+          {view === 'list' ? (
+            <div>
+              {filteredProjects.map((project, index) => (
+                <ListCard key={project.title} project={project} index={index} />
+              ))}
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 py-12">
+              {filteredProjects.map((project) => (
+                <GridCard key={project.title} project={project} />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </section>
   )

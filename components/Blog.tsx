@@ -1,23 +1,5 @@
-const blogPosts = [
-  {
-    title: '10 Apps in 10 Weeks: What I Learned Shipping Fast',
-    description: 'Lessons from building and deploying one full app every week — from idea to production.',
-    date: 'Feb 2026',
-    tags: ['Shipping', 'Building in Public'],
-  },
-  {
-    title: 'Building Multi-Agent Systems with LangGraph',
-    description: 'How I architected a supervisor agent with sub-agents at EasyBee AI to reduce cold-start latency from 5s to 150ms.',
-    date: 'Jan 2026',
-    tags: ['AI Engineering', 'LangGraph'],
-  },
-  {
-    title: 'From Hackathon to Production: Crimson Red-Teaming Platform',
-    description: 'How our team built an automated LLM security testing platform in 24 hours and won the AWS x Datadog hackathon.',
-    date: 'Dec 2025',
-    tags: ['Hackathon', 'AI Security'],
-  },
-]
+import Link from 'next/link'
+import { blogPosts } from '@/data/blog'
 
 const Blog = () => {
   return (
@@ -28,39 +10,69 @@ const Blog = () => {
         </h2>
 
         <div className="space-y-0">
-          {blogPosts.map((post) => (
-            <article
-              key={post.title}
-              className="group py-8 border-b border-gray-100 dark:border-gray-800 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-900/50 -mx-4 px-4 rounded transition-colors"
-            >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-2">
-                <h3 className="text-lg font-bold text-black dark:text-white group-hover:underline decoration-2 decoration-[#FFB74D]">
-                  {post.title}
-                </h3>
-                <span className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider whitespace-nowrap mt-1">
-                  {post.date}
-                </span>
-              </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-3 max-w-2xl">
-                {post.description}
-              </p>
-              <div className="flex gap-2">
-                {post.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[10px] uppercase tracking-wider font-medium text-gray-500 dark:text-gray-400 border border-gray-300 dark:border-gray-600 px-2 py-0.5"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
+          {blogPosts.map((post) => {
+            const isPublished = post.content !== 'Coming soon.'
 
-        <p className="text-xs text-gray-400 dark:text-gray-500 mt-8 italic">
-          More posts coming soon...
-        </p>
+            const inner = (
+              <article
+                className={`group py-8 border-b border-gray-100 dark:border-gray-800 -mx-4 px-4 rounded transition-colors ${
+                  isPublished
+                    ? 'cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-900/50'
+                    : 'opacity-60'
+                }`}
+              >
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-2">
+                  <div className="flex items-center gap-3">
+                    <h3 className={`text-lg font-bold text-black dark:text-white ${isPublished ? 'group-hover:underline decoration-2 decoration-[#FFB74D]' : ''}`}>
+                      {post.title}
+                    </h3>
+                    {!isPublished && (
+                      <span className="text-[10px] uppercase tracking-wider font-medium text-gray-400 dark:text-gray-500 border border-gray-200 dark:border-gray-700 px-2 py-0.5">
+                        Soon
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2 whitespace-nowrap mt-1">
+                    <span className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                      {post.date}
+                    </span>
+                    {isPublished && (
+                      <>
+                        <span className="text-gray-300 dark:text-gray-600">&middot;</span>
+                        <span className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                          {post.readTime}
+                        </span>
+                      </>
+                    )}
+                  </div>
+                </div>
+                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-3 max-w-2xl">
+                  {post.description}
+                </p>
+                <div className="flex gap-2">
+                  {post.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[10px] uppercase tracking-wider font-medium text-gray-500 dark:text-gray-400 border border-gray-300 dark:border-gray-600 px-2 py-0.5"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            )
+
+            if (isPublished) {
+              return (
+                <Link key={post.slug} href={`/blog/${post.slug}`}>
+                  {inner}
+                </Link>
+              )
+            }
+
+            return <div key={post.slug}>{inner}</div>
+          })}
+        </div>
       </div>
     </section>
   )

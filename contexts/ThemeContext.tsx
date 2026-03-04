@@ -16,9 +16,17 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const saved = localStorage.getItem('theme')
-    if (saved === 'dark') {
-      setDark(true)
-      document.documentElement.classList.add('dark')
+    if (saved === 'dark' || saved === 'light') {
+      // User has manually toggled before — respect their choice
+      const isDark = saved === 'dark'
+      setDark(isDark)
+      if (isDark) document.documentElement.classList.add('dark')
+    } else {
+      // No preference saved — follow system/time of day
+      const hour = new Date().getHours()
+      const isNight = hour >= 19 || hour < 7
+      setDark(isNight)
+      if (isNight) document.documentElement.classList.add('dark')
     }
   }, [])
 
