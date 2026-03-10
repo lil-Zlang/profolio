@@ -71,8 +71,8 @@ export const tenWeeksTenAppsProjects: Project[] = [
   {
     title: 'Crimson — AWS × Datadog Hackathon Winner',
     description: 'Automated red-teaming platform that discovers vulnerabilities in LLM-based agent systems. Four-stage multi-agent pipeline (Recon → Plan → Attack → Report) built on AWS Strands Agents + Bedrock probes target agents across 6 attack categories including prompt injection, secret exfiltration, and policy bypass. Features Neo4j attack surface visualization, Datadog trace deep-linking, and severity-rated vulnerability reports with actionable remediation steps.',
-    tags: ['🏆 Hackathon Winner', 'AWS × Datadog', 'Python', 'AWS Strands Agents', 'AWS Bedrock', 'Neo4j', 'Datadog', 'AI Security', 'Red Teaming', 'FastAPI'],
-    categories: ['AI/ML', '10 Weeks 10 Apps'],
+    tags: ['🚀 Top Picks', 'AWS × Datadog', 'Python', 'AWS Strands Agents', 'AWS Bedrock', 'Neo4j', 'Datadog', 'AI Security', 'Red Teaming', 'FastAPI'],
+    categories: ['AI/ML', '10 Weeks 10 Apps', '🚀 Top Picks'],
     github: 'https://github.com/alexanderzliu/aws-dd-hackathon',
     demoVideo: 'https://www.loom.com/share/df42d52224c340a3a098fc3223aa680d',
     image: '/images/Crimson.png',
@@ -80,8 +80,8 @@ export const tenWeeksTenAppsProjects: Project[] = [
   {
     title: 'Mafia Ace',
     description: 'AI-powered Mafia game built on the ACE (Agentic Context Engineering) self-improvement framework from Stanford. LLM agents play live Mafia rounds, reflect on their decisions, and evolve adaptive strategy playbooks without any weight updates.',
-    tags: ['hackathon', '#10weeks10apps', 'Python', 'AI/LLM', 'Multi-Agent', 'Game Theory'],
-    categories: ['AI/ML', '10 Weeks 10 Apps'],
+    tags: ['🎭 AI Social Deduction', 'Stanford ACE', 'Python', 'AI/LLM', 'Multi-Agent', 'Game Theory'],
+    categories: ['AI/ML', '10 Weeks 10 Apps', '🚀 Top Picks'],
     github: 'https://github.com/alexanderzliu/weavehacks3',
     demoVideo: 'https://www.loom.com/share/98b1c9ca826546dea5a5206be9583e25',
     image: '/images/mafia-ace-screenshot.png',
@@ -144,8 +144,8 @@ export const tenWeeksTenAppsProjects: Project[] = [
   {
     title: 'SF Most Wanted Parkers',
     description: 'A Next.js app that tracks San Francisco\'s worst parking offenders using SFMTA citation data stored in Neon/Vercel Postgres.',
-    tags: ['week2', '#10weeks10apps', 'Next.js', 'PostgreSQL', 'SFMTA API'],
-    categories: ['Web Apps', '10 Weeks 10 Apps'],
+    tags: ['🚗 SF Civic Data', 'Parking Offenders', 'Next.js', 'PostgreSQL', 'SFMTA API'],
+    categories: ['Web Apps', '10 Weeks 10 Apps', '🚀 Top Picks'],
     github: 'https://github.com/lgui30/sf-most-wanted-parkers',
     url: 'https://sf-most-wanted-parkers.vercel.app',
     image: '/images/sf-parkers-screenshot.png',
@@ -163,6 +163,14 @@ export const tenWeeksTenAppsProjects: Project[] = [
 
 // Regular Projects (excluding 10weeks10apps)
 export const projects: Project[] = [
+  {
+    title: 'ccDashboard',
+    description: 'Analytics dashboard for Claude Code — track spending, sessions, efficiency, and tool usage across all projects. Features cost tracking, weekly wrapped summaries, activity heatmaps, efficiency scoring, tool analytics, and an AI Memory Manager that extracts knowledge from sessions into CLAUDE.md.',
+    tags: ['Developer Tools', 'Node.js', 'Express', 'Analytics', 'CLI'],
+    categories: ['AI/ML', 'Web Apps', '🚀 Top Picks'],
+    github: 'https://github.com/lgui30/ccDashboard',
+    image: '/images/ccdashboard-screenshot.png',
+  },
   {
     title: 'Skimmd',
     description: 'Lightweight markdown document reader with live editing, auto-generated TOC, theme switching, and real-time file sync via SSE. Clean minimal interface for technical docs and note-taking.',

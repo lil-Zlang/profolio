@@ -15,31 +15,26 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [dark, setDark] = useState(false)
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme')
-    if (saved === 'dark' || saved === 'light') {
-      // User has manually toggled before — respect their choice
-      const isDark = saved === 'dark'
+    const mq = window.matchMedia('(prefers-color-scheme: dark)')
+
+    const apply = (isDark: boolean) => {
       setDark(isDark)
-      if (isDark) document.documentElement.classList.add('dark')
-    } else {
-      // No preference saved — follow system/time of day
-      const hour = new Date().getHours()
-      const isNight = hour >= 19 || hour < 7
-      setDark(isNight)
-      if (isNight) document.documentElement.classList.add('dark')
+      document.documentElement.classList.toggle('dark', isDark)
     }
+
+    // Always sync with device preference on page load
+    apply(mq.matches)
+
+    // Listen for real-time system theme changes
+    const onChange = (e: MediaQueryListEvent) => apply(e.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
   }, [])
 
   const toggle = () => {
     setDark((prev) => {
       const next = !prev
-      if (next) {
-        document.documentElement.classList.add('dark')
-        localStorage.setItem('theme', 'dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-        localStorage.setItem('theme', 'light')
-      }
+      document.documentElement.classList.toggle('dark', next)
       return next
     })
   }

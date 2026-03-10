@@ -14,7 +14,7 @@ export interface SkillCategory {
   skills: string[]
 }
 
-export const PROJECT_CATEGORIES = ['All', 'AI/ML', 'Web Apps', 'Extensions', 'Hardware/IoT', '10 Weeks 10 Apps'] as const
+export const PROJECT_CATEGORIES = ['All', '🚀 Top Picks', 'AI/ML', 'Web Apps', 'Extensions', 'Hardware/IoT', '10 Weeks 10 Apps'] as const
 export type ProjectCategory = typeof PROJECT_CATEGORIES[number]
 
 export interface Project {

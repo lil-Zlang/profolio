@@ -35,6 +35,19 @@
   animation: marquee 20s linear infinite;
 }
 
+/* Blog prose — Substack-style readable typography */
+.prose-blog {
+  font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.prose-blog h1,
+.prose-blog h2,
+.prose-blog h3 {
+  font-family: 'sohne', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  letter-spacing: -0.02em;
+}
+
 /* Hide scrollbar for filter tabs horizontal scroll */
 .scrollbar-hide {
   -ms-overflow-style: none;

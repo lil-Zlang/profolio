@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { tenWeeksTenAppsProjects, projects } from '@/data/portfolio'
 import { Project, PROJECT_CATEGORIES, ProjectCategory } from '@/types'
@@ -167,30 +167,77 @@ const SortIcon = () => (
   </svg>
 )
 
+const CloseIcon = () => (
+  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+  </svg>
+)
+
+/* ── Category button helper ── */
+const getCategoryCount = (category: ProjectCategory) =>
+  category === 'All'
+    ? allProjects.length
+    : allProjects.filter((p) => p.categories.includes(category as Exclude<ProjectCategory, 'All'>)).length
+
 /* ── Main Component ── */
+const DEFAULT_VISIBLE = 6
+
 const ProjectList = () => {
   const [view, setView] = useState<'list' | 'grid'>('grid')
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>('All')
   const [sort, setSort] = useState<SortOption>('default')
   const [animating, setAnimating] = useState(false)
+  const [showSidebar, setShowSidebar] = useState(false)
+  const [showAll, setShowAll] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
+  const tabsRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  const isFocusMode = activeCategory !== 'All'
 
   const baseFiltered = activeCategory === 'All'
     ? allProjects
     : allProjects.filter((p) => p.categories.includes(activeCategory as Exclude<ProjectCategory, 'All'>))
 
-  const filteredProjects = sort === 'default'
+  const allFilteredProjects = sort === 'default'
     ? baseFiltered
     : [...baseFiltered].reverse()
 
-  // Trigger fade transition on filter/sort change
-  const handleCategoryChange = (category: ProjectCategory) => {
+  // In default "All" view, limit to 6 unless expanded
+  const filteredProjects = (!isFocusMode && !showAll)
+    ? allFilteredProjects.slice(0, DEFAULT_VISIBLE)
+    : allFilteredProjects
+
+  const hasMore = !isFocusMode && !showAll && allFilteredProjects.length > DEFAULT_VISIBLE
+
+  // Show vertical sidebar when horizontal tabs scroll out of view AND still in projects section
+  useEffect(() => {
+    const tabs = tabsRef.current
+    const section = sectionRef.current
+    if (!tabs || !section) return
+
+    const handleScroll = () => {
+      const tabsRect = tabs.getBoundingClientRect()
+      const sectionRect = section.getBoundingClientRect()
+      const tabsHidden = tabsRect.bottom < 0
+      const sectionVisible = sectionRect.bottom > 200
+      setShowSidebar(tabsHidden && sectionVisible)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const handleCategoryChange = useCallback((category: ProjectCategory) => {
     setAnimating(true)
     setTimeout(() => {
       setActiveCategory(category)
+      setShowAll(false)
+      // Enter focus mode (list view) when filtering, grid when showing all
+      setView(category === 'All' ? 'grid' : 'list')
       setAnimating(false)
     }, 150)
-  }
+  }, [])
 
   const handleSortChange = (s: SortOption) => {
     setAnimating(true)
@@ -200,8 +247,12 @@ const ProjectList = () => {
     }, 150)
   }
 
+  const exitFocusMode = () => {
+    handleCategoryChange('All')
+  }
+
   return (
-    <section id="projects" className="bg-white dark:bg-gray-950 transition-colors duration-300">
+    <section id="projects" ref={sectionRef} className="bg-white dark:bg-gray-950 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-8">
         {/* Header + Toggle */}
         <div className="flex items-center justify-between pt-12 pb-6 border-b border-gray-200 dark:border-gray-800">
@@ -242,28 +293,36 @@ const ProjectList = () => {
         </div>
 
         {/* Category Filter Tabs — horizontal scroll on mobile */}
-        <div className="flex gap-2 pt-6 overflow-x-auto scrollbar-hide -mx-8 px-8 pb-2">
+        <div ref={tabsRef} className="flex gap-2 pt-6 overflow-x-auto scrollbar-hide -mx-8 px-8 pb-2">
           {PROJECT_CATEGORIES.map((category) => {
-            const count = category === 'All'
-              ? allProjects.length
-              : allProjects.filter((p) => p.categories.includes(category as Exclude<ProjectCategory, 'All'>)).length
+            const count = getCategoryCount(category)
             const isActive = activeCategory === category
 
             return (
-              <button
-                key={category}
-                onClick={() => handleCategoryChange(category)}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200 rounded-full whitespace-nowrap shrink-0 ${
-                  isActive
-                    ? 'bg-black dark:bg-white text-white dark:text-black'
-                    : 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-black dark:hover:text-white'
-                }`}
-              >
-                {category}
-                <span className={`ml-1.5 text-[10px] ${isActive ? 'text-gray-300 dark:text-gray-600' : 'text-gray-400 dark:text-gray-500'}`}>
-                  {count}
-                </span>
-              </button>
+              <div key={category} className="flex items-center gap-1 shrink-0">
+                <button
+                  onClick={() => handleCategoryChange(category)}
+                  className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200 rounded-full whitespace-nowrap ${
+                    isActive
+                      ? 'bg-black dark:bg-white text-white dark:text-black'
+                      : 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-black dark:hover:text-white'
+                  }`}
+                >
+                  {category}
+                  <span className={`ml-1.5 text-[10px] ${isActive ? 'text-gray-300 dark:text-gray-600' : 'text-gray-400 dark:text-gray-500'}`}>
+                    {count}
+                  </span>
+                </button>
+                {isActive && category !== 'All' && (
+                  <button
+                    onClick={(e) => { e.stopPropagation(); exitFocusMode() }}
+                    className="p-1 rounded-full text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+                    aria-label="Clear filter"
+                  >
+                    <CloseIcon />
+                  </button>
+                )}
+              </div>
             )
           })}
         </div>
@@ -286,7 +345,60 @@ const ProjectList = () => {
               ))}
             </div>
           )}
+
+          {/* View More / View Less */}
+          {hasMore && (
+            <div className="flex justify-center pb-12">
+              <button
+                onClick={() => setShowAll(true)}
+                className="px-6 py-2.5 text-xs font-bold uppercase tracking-wider border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white rounded-full transition-colors"
+              >
+                View All Projects ({allFilteredProjects.length})
+              </button>
+            </div>
+          )}
+          {!isFocusMode && showAll && allFilteredProjects.length > DEFAULT_VISIBLE && (
+            <div className="flex justify-center pb-12">
+              <button
+                onClick={() => setShowAll(false)}
+                className="px-6 py-2.5 text-xs font-bold uppercase tracking-wider border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white rounded-full transition-colors"
+              >
+                Show Less
+              </button>
+            </div>
+          )}
         </div>
+      </div>
+
+      {/* ── Sticky Vertical Sidebar (appears when scrolling past horizontal tabs) ── */}
+      <div
+        className={`hidden md:flex fixed right-6 top-1/2 -translate-y-1/2 z-40 flex-col items-end gap-1.5 transition-all duration-300 ${
+          showSidebar ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8 pointer-events-none'
+        }`}
+      >
+        {PROJECT_CATEGORIES.map((category) => {
+          const count = getCategoryCount(category)
+          const isActive = activeCategory === category
+
+          return (
+            <button
+              key={category}
+              onClick={() => handleCategoryChange(category)}
+              className={`group flex items-center gap-2 transition-all duration-200 rounded-full ${
+                isActive
+                  ? 'bg-black dark:bg-white text-white dark:text-black px-4 py-1.5'
+                  : 'bg-gray-100/90 dark:bg-gray-800/90 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-black dark:hover:text-white backdrop-blur-sm px-3 py-1.5'
+              }`}
+            >
+              <span className="text-[10px] font-bold uppercase tracking-wider whitespace-nowrap">
+                {category}
+              </span>
+              <span className={`text-[9px] ${isActive ? 'text-gray-300 dark:text-gray-600' : 'text-gray-400 dark:text-gray-500'}`}>
+                {count}
+              </span>
+            </button>
+          )
+        })}
       </div>
     </section>
   )

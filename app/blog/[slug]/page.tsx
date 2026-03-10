@@ -35,10 +35,10 @@ export default function BlogPostPage() {
   const sections = post.content.split('\n---\n')
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-[#0f0f0f] transition-colors duration-300">
       {/* Minimal nav */}
-      <nav className="sticky top-0 w-full z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800">
-        <div className="max-w-2xl mx-auto px-6 h-14 flex items-center justify-between">
+      <nav className="sticky top-0 w-full z-50 bg-white/90 dark:bg-[#0f0f0f]/90 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800/50">
+        <div className="max-w-[680px] mx-auto px-6 h-14 flex items-center justify-between">
           <Link
             href="/#blog"
             className="text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
@@ -64,34 +64,25 @@ export default function BlogPostPage() {
       </nav>
 
       {/* Article */}
-      <article className="max-w-2xl mx-auto px-6 py-16">
-        {/* Header */}
-        <header className="mb-12">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-              {post.date}
-            </span>
-            <span className="text-gray-300 dark:text-gray-600">&middot;</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-              {post.readTime}
-            </span>
-          </div>
-          <h1 className="text-3xl md:text-4xl font-black text-black dark:text-white leading-tight mb-6">
+      <article className="prose-blog max-w-[680px] mx-auto px-6 pt-12 pb-20">
+        {/* Header — Substack style */}
+        <header className="mb-10">
+          <h1 className="text-[2.5rem] md:text-[2.75rem] font-bold text-black dark:text-white leading-[1.15] tracking-tight mb-4">
             {post.title}
           </h1>
-          <div className="flex flex-wrap gap-2">
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-[10px] uppercase tracking-wider font-medium text-gray-500 dark:text-gray-400 border border-gray-300 dark:border-gray-600 px-2 py-0.5"
-              >
-                {tag}
-              </span>
-            ))}
+          <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+            {post.description}
+          </p>
+          <div className="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
+            <span>{post.date}</span>
+            <span className="text-gray-300 dark:text-gray-600">&middot;</span>
+            <span>{post.readTime}</span>
           </div>
+          {/* Divider */}
+          <div className="mt-8 border-t border-gray-200 dark:border-gray-800" />
         </header>
 
-        {/* Content */}
+        {/* Content — Substack-style body */}
         <div className="space-y-16">
           {sections.map((section, sectionIdx) => (
             <div key={sectionIdx} className="space-y-6">
@@ -106,7 +97,7 @@ export default function BlogPostPage() {
                     return (
                       <p
                         key={pIdx}
-                        className="text-lg md:text-xl font-medium text-black dark:text-white italic leading-relaxed pl-4 border-l-2 border-[#FFB74D]"
+                        className="text-[1.125rem] md:text-lg text-gray-800 dark:text-gray-200 italic leading-[1.7] pl-6 border-l-[3px] border-amber-400 dark:border-amber-500"
                       >
                         {trimmed.slice(1, -1)}
                       </p>
@@ -118,7 +109,7 @@ export default function BlogPostPage() {
                     return (
                       <p
                         key={pIdx}
-                        className="text-base md:text-lg font-bold text-black dark:text-white leading-relaxed"
+                        className="text-[1.125rem] md:text-lg font-bold text-black dark:text-white leading-[1.5]"
                       >
                         {trimmed.slice(2, -2)}
                       </p>
@@ -129,10 +120,10 @@ export default function BlogPostPage() {
                   return (
                     <p
                       key={pIdx}
-                      className="text-base text-gray-700 dark:text-gray-300 leading-[1.8]"
+                      className="text-[1.125rem] md:text-lg text-gray-800 dark:text-gray-200 leading-[1.7]"
                       dangerouslySetInnerHTML={{
                         __html: trimmed
-                          .replace(/\*\*(.+?)\*\*/g, '<strong class="text-black dark:text-white font-semibold">$1</strong>')
+                          .replace(/\*\*(.+?)\*\*/g, '<strong class="font-bold text-black dark:text-white">$1</strong>')
                           .replace(/\*(.+?)\*/g, '<em>$1</em>'),
                       }}
                     />
@@ -143,7 +134,17 @@ export default function BlogPostPage() {
         </div>
 
         {/* Footer */}
-        <footer className="mt-20 pt-8 border-t border-gray-200 dark:border-gray-800">
+        <footer className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
+          <div className="flex flex-wrap gap-2 mb-6">
+            {post.tags.map((tag) => (
+              <span
+                key={tag}
+                className="text-xs uppercase tracking-wider font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
           <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
             Built Crimson with{' '}
             <a href="https://twitter.com/briksliks" target="_blank" rel="noopener noreferrer" className="underline hover:text-black dark:hover:text-white">
