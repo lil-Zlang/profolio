@@ -55,6 +55,7 @@ export interface BlogPost {
   tags: string[]
   readTime: string
   content: string
+  externalUrl?: string
 }
 
 // Component prop types

@@ -8,6 +8,7 @@ export const blogPosts: BlogPost[] = [
     date: 'Mar 2026',
     tags: ['Building', 'Hackathon', 'AI Security'],
     readTime: '8 min read',
+    externalUrl: 'https://mountain-tendency-a37.notion.site/The-Winning-Formula-Nobody-Tells-You-About-Hackathons-And-Building-in-General-3195e245a0b080188fbde7df3fb1f1ec?pvs=143',
     content: `We won first place at the AWS x Datadog x Anthropic Hackathon.
 
 Our code wasn't the best in the room. Not even close.
@@ -113,22 +114,14 @@ Learn to build. Then learn to make people care about what you built.
 The second skill is harder. And it's the one that changes everything.`,
   },
   {
-    slug: '10-apps-in-10-weeks',
-    title: '10 Apps in 10 Weeks: What I Learned Shipping Fast',
-    description: 'Lessons from building and deploying one full app every week — from idea to production.',
-    date: 'Feb 2026',
-    tags: ['Shipping', 'Building in Public'],
-    readTime: '6 min read',
-    content: 'Coming soon.',
-  },
-  {
-    slug: 'building-multi-agent-systems-langgraph',
-    title: 'Building Multi-Agent Systems with LangGraph',
-    description: 'How I architected a supervisor agent with sub-agents at EasyBee AI to reduce cold-start latency from 5s to 150ms.',
-    date: 'Jan 2026',
-    tags: ['AI Engineering', 'LangGraph'],
-    readTime: '10 min read',
-    content: 'Coming soon.',
+    slug: '1318-applications-6-months-and-one-offer',
+    title: '1,318 Applications, 6 Months, and One Offer',
+    description: 'The raw story of my job search — what worked, what didn\'t, and what I learned along the way.',
+    date: 'Mar 2026',
+    tags: ['Career', 'Job Search'],
+    readTime: '5 min read',
+    content: '',
+    externalUrl: 'https://mountain-tendency-a37.notion.site/1-318-Applications-6-Months-and-One-Offer-3215e245a0b080c393ebfbdd9cbf6559?pvs=74',
   },
 ]
 

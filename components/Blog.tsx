@@ -11,7 +11,7 @@ const Blog = () => {
 
         <div className="space-y-0">
           {blogPosts.map((post) => {
-            const isPublished = post.content !== 'Coming soon.'
+            const isPublished = post.externalUrl || (post.content && post.content !== 'Coming soon.')
 
             const inner = (
               <article
@@ -61,6 +61,14 @@ const Blog = () => {
                 </div>
               </article>
             )
+
+            if (isPublished && post.externalUrl) {
+              return (
+                <a key={post.slug} href={post.externalUrl} target="_blank" rel="noopener noreferrer">
+                  {inner}
+                </a>
+              )
+            }
 
             if (isPublished) {
               return (
