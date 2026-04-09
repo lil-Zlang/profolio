@@ -5,7 +5,7 @@ export const experiences: Experience[] = [
     company: 'EasyBee AI',
     role: 'AI Engineer',
     location: 'San Francisco, CA',
-    period: 'July 2025 - Present',
+    period: 'July 2025 - March 2026',
     url: 'https://easybee.ai/',
     image: '/images/easybeeAI.png',
     achievements: [

@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Experience from '@/components/Experience'
 import ProjectList from '@/components/ProjectList'
+import Blog from '@/components/Blog'
 import Footer from '@/components/Footer'
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <Experience />
       <ProjectList />
+      <Blog />
       <Footer />
     </main>
   )
