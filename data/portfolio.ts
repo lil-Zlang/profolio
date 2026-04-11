@@ -2,6 +2,14 @@ import { Experience, SkillCategory, Project, Stat, NavItem, SocialLink } from '@
 
 export const experiences: Experience[] = [
   {
+    company: 'Galatiq',
+    role: 'Forward Deployed Engineer',
+    location: 'Austin, TX',
+    period: 'April 2026 - Present',
+    image: '/images/galatiq.png',
+    achievements: [],
+  },
+  {
     company: 'EasyBee AI',
     role: 'AI Engineer',
     location: 'San Francisco, CA',
